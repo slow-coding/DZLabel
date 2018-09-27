@@ -17,8 +17,6 @@
  
  ### Manipulate
  
- query(Must Have)                    =     end
- endWithAttributes
  append                              =     appendAttributedString
  replace                             =     replaceCharacters
  insert                              =     insert

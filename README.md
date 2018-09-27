@@ -13,6 +13,8 @@
 - Support detections of `Sinle-Tap on links`, `Single-Tap on Whole Text`, `Long-Press on links`
 - Support automatic table view cell height calculation (autolayout)
 
+![](QQ20180927-170618@2x.png)
+
 ## Usage
 
 #### 1. Basic Setup

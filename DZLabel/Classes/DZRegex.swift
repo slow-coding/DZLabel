@@ -14,8 +14,7 @@ struct DZRegexMatchModel {
 final class DZRegex {
     
     static let DZRegexPatternEmotion = "\\[[^\\[\\]]+\\]"
-    static let DZRegexPatternAt = "[@]+(\\w|[-|.])*"
-    fileprivate static let DZRegexPatternNumberOnly = "^[0-9]*$"
+    static let DZRegexPatternMention = "[@]+(\\w|[-|.])*"
     
     static let URLPrefix = "url:"
     static let PhonePrefix = "tel:"
@@ -51,19 +50,8 @@ extension DZRegex {
             else { return [NSTextCheckingResult]() }
         let input = text
         let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.phoneNumber.rawValue)
-        var results = [NSTextCheckingResult]()
         let matches = detector?.matches(in: input, options: [], range: NSRange(location: 0, length: input.utf16.count))
-        if let aMatchs = matches {
-            for match in aMatchs {
-                if match.range.location > 0 && input.substring(with: input.utf16.index(input.utf16.startIndex, offsetBy: match.range.location - 1)..<input.utf16.index(input.utf16.startIndex, offsetBy: match.range.location)) == "@" {
-                    continue
-                }
-                
-                results.append(match)
-            }
-        }
-        
-        return results
+        return matches ?? [NSTextCheckingResult]()
     }
     
     // 检测 地址
@@ -100,7 +88,7 @@ extension DZRegex {
     
     // 检测 @提及
     class func mentionResultsInText(_ text: String?) -> [NSTextCheckingResult] {
-        return matchPattern(DZRegexPatternAt, text: text)
+        return matchPattern(DZRegexPatternMention, text: text)
     }
     
 

@@ -4,6 +4,8 @@
 [![License](https://img.shields.io/cocoapods/l/DZLabel.svg?style=flat)](https://cocoapods.org/pods/DZLabel)
 [![Platform](https://img.shields.io/cocoapods/p/DZLabel.svg?style=flat)](https://cocoapods.org/pods/DZLabel)
 
+![](QQ20180927-171315@2x.png)
+
 ## Introduction
 
 - A replacement of UILabel, but more.
@@ -12,8 +14,6 @@
 - Support setting link color
 - Support detections of `Sinle-Tap on links`, `Single-Tap on Whole Text`, `Long-Press on links`
 - Support automatic table view cell height calculation (autolayout)
-
-![](QQ20180927-171315@2x.png)
 
 ## Usage
 

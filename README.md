@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/cocoapods/l/DZLabel.svg?style=flat)](https://cocoapods.org/pods/DZLabel)
 [![Platform](https://img.shields.io/cocoapods/p/DZLabel.svg?style=flat)](https://cocoapods.org/pods/DZLabel)
 
-![](QQ20180927-171315@2x.png)
+![](QQ20180927-171545@2x.png)
 
 ## Introduction
 

@@ -17,7 +17,7 @@
 
 ## Usage
 
-#### 1. Basic Setup
+### 1. Basic Setup
 ``` swift
 var label = DZLabel()
 label.font = UIFont.systemFont(ofSize: 14)
@@ -25,7 +25,7 @@ label.textColor = UIColor.blue
 label.linkColor = UIColor.red
 ```
 
-#### 2. Enable Link Types
+### 2. Enable Link Types
 ``` swift
 label.enabledTypes = [
     .address,
@@ -43,7 +43,7 @@ label.enabledTypes = [
 ]
 ```
 
-#### 3. Handle Callbacks
+### 3. Handle Callbacks
 ``` swift
 label.handleMentionTap { result in
     print("mention tapped" + result)

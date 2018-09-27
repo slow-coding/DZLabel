@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'DZLabel_Example' do
+  pod 'DZLabel', :path => '../'
+
+  target 'DZLabel_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

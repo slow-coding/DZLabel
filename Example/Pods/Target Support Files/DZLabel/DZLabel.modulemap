@@ -1,0 +1,6 @@
+framework module DZLabel {
+  umbrella header "DZLabel-umbrella.h"
+
+  export *
+  module * { export * }
+}

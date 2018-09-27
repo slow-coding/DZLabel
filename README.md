@@ -1,16 +1,79 @@
 # DZLabel
 
-[![CI Status](https://img.shields.io/travis/Darren Zheng/DZLabel.svg?style=flat)](https://travis-ci.org/Darren Zheng/DZLabel)
 [![Version](https://img.shields.io/cocoapods/v/DZLabel.svg?style=flat)](https://cocoapods.org/pods/DZLabel)
 [![License](https://img.shields.io/cocoapods/l/DZLabel.svg?style=flat)](https://cocoapods.org/pods/DZLabel)
 [![Platform](https://img.shields.io/cocoapods/p/DZLabel.svg?style=flat)](https://cocoapods.org/pods/DZLabel)
+
+## Introduction
+
+- A replacement of UILabel, but more.
+- Support for `Mentions`, `Links`, `Phone Numbers`, `Addresses`, `Emoticons(images)`
+- Support custom `Regex` links
+- Support setting link color
+- Support detections of `Sinle-Tap on links`, `Single-Tap on Whole Text`, `Long-Press on links`
+- Support automatic table view cell height calculation (autolayout)
+
+## Usage
+
+#### 1. Basic Setup
+``` swift
+var label = DZLabel()
+label.font = UIFont.systemFont(ofSize: 14)
+label.textColor = UIColor.blue
+label.linkColor = UIColor.red
+```
+
+#### 2. Enable Link Types
+``` swift
+label.enabledTypes = [
+    .address,
+    .phone,
+    .mention,
+    .url,
+    .emoticon(pattern: nil,
+              bounds: CGRect(x: 0, y: -2, width: 10, height: 10),
+              imageNameBlock: ({ name in
+                var imageName = name
+                if imageName.hasPrefix("[") { imageName.removeFirst() }
+                if imageName.hasSuffix("]") { imageName.removeLast() }
+                return imageName})),
+    .regex(pattern: "AM|PM"),
+]
+```
+
+#### 3. Enable Link Types
+``` swift
+label.handleMentionTap { result in
+    print("mention tapped" + result)
+}
+
+label.handleURLTap { result in
+    print("url tapped" + result)
+}
+
+label.handlePhoneTap { result in
+    print("phone tapped" + result)
+}
+
+label.handleAddressTap { result in
+    print("address tapped" + result)
+}
+
+label.handleKeywordLongPress {
+    print("keyword long pressed")
+}
+
+label.handleRegexKeywordTap { result in
+    print("custom regex tapped" + result)
+}
+```
 
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
-
+iOS 8+
 ## Installation
 
 DZLabel is available through [CocoaPods](https://cocoapods.org). To install

@@ -13,7 +13,7 @@
 - Support detections of `Sinle-Tap on links`, `Single-Tap on Whole Text`, `Long-Press on links`
 - Support automatic table view cell height calculation (autolayout)
 
-![](QQ20180927-170618@2x.png)
+![](QQ20180927-171315@2x.png)
 
 ## Usage
 
@@ -43,7 +43,7 @@ label.enabledTypes = [
 ]
 ```
 
-#### 3. Enable Link Types
+#### 3. Handle Callbacks
 ``` swift
 label.handleMentionTap { result in
     print("mention tapped" + result)

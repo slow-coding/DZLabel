@@ -1,0 +1,22 @@
+{
+  "name": "DZLabel",
+  "version": "0.1.0",
+  "summary": "A short description of DZLabel.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Darren Zheng/DZLabel",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Darren Zheng": "623767307@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/Darren Zheng/DZLabel.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "DZLabel/Classes/**/*"
+}

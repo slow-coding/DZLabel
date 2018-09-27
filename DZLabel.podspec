@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 Rich Text Clickable Link Label
                        DESC
 
-  s.homepage         = 'https://github.com/Darren Zheng/DZLabel'
+  s.homepage         = 'https://github.com/darrendev/DZLabel'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Darren Zheng' => '623767307@qq.com' }
-  s.source           = { :git => 'https://github.com/Darren Zheng/DZLabel.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/darrendev/DZLabel.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'

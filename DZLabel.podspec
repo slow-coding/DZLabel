@@ -31,7 +31,7 @@ Rich Text Clickable Link Label
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'DZLabel/Classes/**/*'
-  
+  swift_version = 4.2
   # s.resource_bundles = {
   #   'DZLabel' => ['DZLabel/Assets/*.png']
   # }

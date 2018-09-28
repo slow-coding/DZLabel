@@ -32,9 +32,9 @@ label.enabledTypes = [
     .phone,
     .mention,
     .url,
-    .emoticon(pattern: nil,
-              bounds: CGRect(x: 0, y: -2, width: 10, height: 10),
-              imageNameBlock: ({ name in
+    .emoticon(pattern: nil, // By default: "[EmoticonName]"
+              bounds: CGRect(x: 0, y: -2, width: 10, height: 10), // Position and Size
+              imageNameBlock: ({ name in // Text -> Local Image Name
                 var imageName = name
                 if imageName.hasPrefix("[") { imageName.removeFirst() }
                 if imageName.hasSuffix("]") { imageName.removeLast() }
@@ -75,7 +75,9 @@ label.handleRegexKeywordTap { result in
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
-iOS 8+
+- iOS 8+
+- Swift 4
+
 ## Installation
 
 DZLabel is available through [CocoaPods](https://cocoapods.org). To install

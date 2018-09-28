@@ -8,6 +8,7 @@
 
 ## Introduction
 
+- Base on UITextView.
 - A replacement of UILabel, but more.
 - Support for `Mentions`, `Links`, `Phone Numbers`, `Addresses`, `Emoticons(images)`
 - Support custom `Regex` links

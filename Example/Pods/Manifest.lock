@@ -1,5 +1,5 @@
 PODS:
-  - DZLabel (0.1.0)
+  - DZLabel (1.0.1)
 
 DEPENDENCIES:
   - DZLabel (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DZLabel: 3611b0ccac25a9d4c85c5d5da4e33c8d19f9adec
+  DZLabel: 647d3e63cd6a94be0d4b117c565c982e4a921914
 
 PODFILE CHECKSUM: cae84a9c2a7acb27df628b9fd33d3cbceefc9967
 

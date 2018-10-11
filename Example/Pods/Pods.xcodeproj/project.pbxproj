@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		55025FBA0CD0CCDEF4180C422597F354 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		566D23F7215CC297001AC32B /* DZLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566D23F3215CC296001AC32B /* DZLabel.swift */; };
-		566D23F8215CC297001AC32B /* DZRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566D23F4215CC297001AC32B /* DZRegex.swift */; };
-		566D23F9215CC297001AC32B /* DZAttributedStringGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566D23F5215CC297001AC32B /* DZAttributedStringGenerator.swift */; };
-		566D23FA215CC297001AC32B /* DZKeywordTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566D23F6215CC297001AC32B /* DZKeywordTypes.swift */; };
+		01F184F8783F70C4AC02C28B629941C9 /* DZKeywordTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C329DB98D0EACC8044EEF0710472C9 /* DZKeywordTypes.swift */; };
+		34E24110617E7D9A296FAF1A528B5E24 /* DZLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A89E39E186763F42D62E0BB1A923CF /* DZLabel.swift */; };
+		3AB8B96F1C2AC9D6739753DC4D5BD714 /* DZRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F5E94DFEF611C10F318986C669373 /* DZRegex.swift */; };
+		3DA1CEF26EB9E3DE07D19727636DBD2B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
 		6FFCF261857685BB3693EA890DB23B9A /* Pods-DZLabel_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AE31308E9AB68306D6652389486ABD86 /* Pods-DZLabel_Tests-dummy.m */; };
+		8018F7BBD6A0DA27917F4614481CBFCF /* DZAttributedStringGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C453ABB202A0E39CDFFE3BCA9D81444B /* DZAttributedStringGenerator.swift */; };
 		8E3FB293F44BAAB6158CFE326849EA6D /* Pods-DZLabel_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 442719BFA36F4E4997BFD29849727781 /* Pods-DZLabel_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		919389F52EB87DA96876898F27DA27AE /* Pods-DZLabel_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D2ADD4E0F80DC4D538CDEBCBA538DA /* Pods-DZLabel_Example-dummy.m */; };
 		9AE245894C4D316F9E663DB8462F0C7B /* Pods-DZLabel_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 520214F6B2455DC8F05A33122E54BE05 /* Pods-DZLabel_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A638885DBAEC235B4E6C6D21871B771E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		AF9B85C8B0C6E2FB9D55CB8816D33752 /* DZLabel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 54B6D44544C144165F81976DEB77F885 /* DZLabel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D8608DECE2726AD505D5C6DC33DCE10F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		FB8CD5410368044DD8BE97D68772D101 /* DZLabel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC7BE77C36B68A05208A7BDA8CE49B9 /* DZLabel-dummy.m */; };
+		DD4181D97EF10858176B1424D6B067BB /* DZLabel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7423F72A68B3EE5C5D8F5FF7B49E6401 /* DZLabel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F4D1FCF5ACC91F295D393B3F2B941D69 /* DZLabel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B608FD679A3549A5C9634AF3BE517494 /* DZLabel-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,7 +27,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F27E025A3CE62D719B2BB4F1814C5AB1;
+			remoteGlobalIDString = 75BA7A3E64BF761F275032DB12A020D8;
 			remoteInfo = DZLabel;
 		};
 		F2EB1879CCAE2EEFF4D87012CE455A8E /* PBXContainerItemProxy */ = {
@@ -40,52 +40,52 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0363AC5615294F92805689E9C44F787C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03A89E39E186763F42D62E0BB1A923CF /* DZLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DZLabel.swift; path = DZLabel/Classes/DZLabel.swift; sourceTree = "<group>"; };
 		0A97E2BA23DC1E95497D3823801D8EA0 /* Pods-DZLabel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DZLabel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		0E96DE054B8851611B83AE63F4B237FC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1CC7BE77C36B68A05208A7BDA8CE49B9 /* DZLabel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DZLabel-dummy.m"; sourceTree = "<group>"; };
-		2606C85A3EDBB46C4292355748C8A3CB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		421E2636D67FC2D38916550DA35C701A /* Pods-DZLabel_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DZLabel_Tests-resources.sh"; sourceTree = "<group>"; };
 		442719BFA36F4E4997BFD29849727781 /* Pods-DZLabel_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DZLabel_Example-umbrella.h"; sourceTree = "<group>"; };
 		51D2ADD4E0F80DC4D538CDEBCBA538DA /* Pods-DZLabel_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DZLabel_Example-dummy.m"; sourceTree = "<group>"; };
 		520214F6B2455DC8F05A33122E54BE05 /* Pods-DZLabel_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DZLabel_Tests-umbrella.h"; sourceTree = "<group>"; };
-		54B6D44544C144165F81976DEB77F885 /* DZLabel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DZLabel-umbrella.h"; sourceTree = "<group>"; };
-		566D23F3215CC296001AC32B /* DZLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DZLabel.swift; path = DZLabel/Classes/DZLabel.swift; sourceTree = "<group>"; };
-		566D23F4215CC297001AC32B /* DZRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DZRegex.swift; path = DZLabel/Classes/DZRegex.swift; sourceTree = "<group>"; };
-		566D23F5215CC297001AC32B /* DZAttributedStringGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DZAttributedStringGenerator.swift; path = DZLabel/Classes/DZAttributedStringGenerator.swift; sourceTree = "<group>"; };
-		566D23F6215CC297001AC32B /* DZKeywordTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DZKeywordTypes.swift; path = DZLabel/Classes/DZKeywordTypes.swift; sourceTree = "<group>"; };
+		54FA785B28C51AC393BB69E44F0A4556 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5E9F5E94DFEF611C10F318986C669373 /* DZRegex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DZRegex.swift; path = DZLabel/Classes/DZRegex.swift; sourceTree = "<group>"; };
 		5F58D5EEE9029FE8B39E552D95D91A23 /* Pods-DZLabel_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DZLabel_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		79DE2E2DC05C68706A48B4DEC212344D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		7423F72A68B3EE5C5D8F5FF7B49E6401 /* DZLabel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DZLabel-umbrella.h"; sourceTree = "<group>"; };
+		81C329DB98D0EACC8044EEF0710472C9 /* DZKeywordTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DZKeywordTypes.swift; path = DZLabel/Classes/DZKeywordTypes.swift; sourceTree = "<group>"; };
+		859D9589FC308F9E0359C9485A2AD206 /* DZLabel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DZLabel.modulemap; sourceTree = "<group>"; };
 		8C52460B2272188BB76F25B7906916AD /* Pods-DZLabel_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DZLabel_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9890A6EBCF91715DD579D21E8717053F /* Pods_DZLabel_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DZLabel_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9E40257866C2A58BAC8ECFC28FB4B32E /* DZLabel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DZLabel.xcconfig; sourceTree = "<group>"; };
-		A81B3F350B358264ADF5CEDD17D88B05 /* DZLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DZLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		926C5E264E4171A818129E34A945C915 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9617C47691E762462300D572DF29C6F4 /* DZLabel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DZLabel.xcconfig; sourceTree = "<group>"; };
+		9890A6EBCF91715DD579D21E8717053F /* Pods_DZLabel_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_DZLabel_Tests.framework; path = "Pods-DZLabel_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D2BD6A94892C5FECE12099ACD0F5D17 /* DZLabel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DZLabel-prefix.pch"; sourceTree = "<group>"; };
+		A81B3F350B358264ADF5CEDD17D88B05 /* DZLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DZLabel.framework; path = DZLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A88420E7D0AA79FBA9639E656EA798C0 /* Pods-DZLabel_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DZLabel_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		A8B25B42514AA9570141AA2273B65BCA /* Pods-DZLabel_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DZLabel_Example-resources.sh"; sourceTree = "<group>"; };
 		AE31308E9AB68306D6652389486ABD86 /* Pods-DZLabel_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DZLabel_Tests-dummy.m"; sourceTree = "<group>"; };
-		B3FE216ADA50768CE9CE9E7B6CD7CA45 /* Pods_DZLabel_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DZLabel_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3FE216ADA50768CE9CE9E7B6CD7CA45 /* Pods_DZLabel_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_DZLabel_Example.framework; path = "Pods-DZLabel_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B608FD679A3549A5C9634AF3BE517494 /* DZLabel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DZLabel-dummy.m"; sourceTree = "<group>"; };
+		BACA8E9F7E908FDA414A843F2E5B6C54 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C244B95442BB10D09901DFEEC44C4C63 /* DZLabel.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = DZLabel.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C453ABB202A0E39CDFFE3BCA9D81444B /* DZAttributedStringGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DZAttributedStringGenerator.swift; path = DZLabel/Classes/DZAttributedStringGenerator.swift; sourceTree = "<group>"; };
 		C7729AA3692E6E2CDA6D650EC77FD345 /* Pods-DZLabel_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DZLabel_Example-frameworks.sh"; sourceTree = "<group>"; };
 		CDDBF5C7D9DFD136B4146694B057E716 /* Pods-DZLabel_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DZLabel_Example.release.xcconfig"; sourceTree = "<group>"; };
 		CDE19D92E6431E8E3AEAF37958B69E70 /* Pods-DZLabel_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DZLabel_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D184E9FA97B311984986960263494DCC /* Pods-DZLabel_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DZLabel_Tests.modulemap"; sourceTree = "<group>"; };
 		D2B179E657FDB570BB1C5DD5B44A65D4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D55D53842A6FB7CAC67C00AC1BA80505 /* DZLabel.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = DZLabel.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D8E1D1BC75FDD7C2FFFBE82EA7C4AE99 /* Pods-DZLabel_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DZLabel_Example.modulemap"; sourceTree = "<group>"; };
 		DAC2EE2CDC9C548B7D9F673363D502FF /* Pods-DZLabel_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DZLabel_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		E292F7A17DFC99F3DEDC650D2817CC7A /* DZLabel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DZLabel.modulemap; sourceTree = "<group>"; };
-		E6B31511B6811F35B6BAE9385402241B /* DZLabel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DZLabel-prefix.pch"; sourceTree = "<group>"; };
 		F38EFCFB42CEC7D049A5992C210D1416 /* Pods-DZLabel_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DZLabel_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		FB1439AF72EC3A5E9BD9687E2F73C3B3 /* Pods-DZLabel_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DZLabel_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		872F9334FC6A168B54DA82D7A4529A05 /* Frameworks */ = {
+		303292CAB5CA5B6E36D8F2319A3036EC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55025FBA0CD0CCDEF4180C422597F354 /* Foundation.framework in Frameworks */,
+				3DA1CEF26EB9E3DE07D19727636DBD2B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,18 +108,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		31BDD0982E0FA30EB872780BC3CB110C /* DZLabel */ = {
+		05D8306D64ADAD226FD35618CBE307B3 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				566D23F5215CC297001AC32B /* DZAttributedStringGenerator.swift */,
-				566D23F6215CC297001AC32B /* DZKeywordTypes.swift */,
-				566D23F3215CC296001AC32B /* DZLabel.swift */,
-				566D23F4215CC297001AC32B /* DZRegex.swift */,
-				A03BD0CA03417E24FC6B07E15668BF2D /* Pod */,
-				847170478BDC5F5E7B646D2017EAAE6C /* Support Files */,
+				C244B95442BB10D09901DFEEC44C4C63 /* DZLabel.podspec */,
+				926C5E264E4171A818129E34A945C915 /* LICENSE */,
+				54FA785B28C51AC393BB69E44F0A4556 /* README.md */,
 			);
-			name = DZLabel;
-			path = ../..;
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		47DFB9CF3AAE6D14B7BDD2245ECF0702 /* Targets Support Files */ = {
@@ -131,20 +127,26 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		5A1696C661050A3CFC3825DF77E256D7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				859D9589FC308F9E0359C9485A2AD206 /* DZLabel.modulemap */,
+				9617C47691E762462300D572DF29C6F4 /* DZLabel.xcconfig */,
+				B608FD679A3549A5C9634AF3BE517494 /* DZLabel-dummy.m */,
+				9D2BD6A94892C5FECE12099ACD0F5D17 /* DZLabel-prefix.pch */,
+				7423F72A68B3EE5C5D8F5FF7B49E6401 /* DZLabel-umbrella.h */,
+				BACA8E9F7E908FDA414A843F2E5B6C54 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/DZLabel";
+			sourceTree = "<group>";
+		};
 		5E0D919E635D23B70123790B8308F8EF /* iOS */ = {
 			isa = PBXGroup;
 			children = (
 				5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		5ECEA1B9FAC265400C10462CDCBFBEF2 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				31BDD0982E0FA30EB872780BC3CB110C /* DZLabel */,
-			);
-			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		74CC3425A480FE3149141DE5FD3FC4C7 /* Pods-DZLabel_Example */ = {
@@ -169,25 +171,11 @@
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				5ECEA1B9FAC265400C10462CDCBFBEF2 /* Development Pods */,
+				EAE2782760F1674FBCD77AC4E92D2118 /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				DF360DD9FD1796EE4170870DBEB6532B /* Products */,
 				47DFB9CF3AAE6D14B7BDD2245ECF0702 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		847170478BDC5F5E7B646D2017EAAE6C /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				E292F7A17DFC99F3DEDC650D2817CC7A /* DZLabel.modulemap */,
-				9E40257866C2A58BAC8ECFC28FB4B32E /* DZLabel.xcconfig */,
-				1CC7BE77C36B68A05208A7BDA8CE49B9 /* DZLabel-dummy.m */,
-				E6B31511B6811F35B6BAE9385402241B /* DZLabel-prefix.pch */,
-				54B6D44544C144165F81976DEB77F885 /* DZLabel-umbrella.h */,
-				0363AC5615294F92805689E9C44F787C /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/DZLabel";
 			sourceTree = "<group>";
 		};
 		9F0B86DA91F449F792E5729FADFE2A4A /* Pods-DZLabel_Tests */ = {
@@ -208,22 +196,26 @@
 			path = "Target Support Files/Pods-DZLabel_Tests";
 			sourceTree = "<group>";
 		};
-		A03BD0CA03417E24FC6B07E15668BF2D /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				D55D53842A6FB7CAC67C00AC1BA80505 /* DZLabel.podspec */,
-				79DE2E2DC05C68706A48B4DEC212344D /* LICENSE */,
-				2606C85A3EDBB46C4292355748C8A3CB /* README.md */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				5E0D919E635D23B70123790B8308F8EF /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BD423E2B692B48C5B77A630B805E0A51 /* DZLabel */ = {
+			isa = PBXGroup;
+			children = (
+				C453ABB202A0E39CDFFE3BCA9D81444B /* DZAttributedStringGenerator.swift */,
+				81C329DB98D0EACC8044EEF0710472C9 /* DZKeywordTypes.swift */,
+				03A89E39E186763F42D62E0BB1A923CF /* DZLabel.swift */,
+				5E9F5E94DFEF611C10F318986C669373 /* DZRegex.swift */,
+				05D8306D64ADAD226FD35618CBE307B3 /* Pod */,
+				5A1696C661050A3CFC3825DF77E256D7 /* Support Files */,
+			);
+			name = DZLabel;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		DF360DD9FD1796EE4170870DBEB6532B /* Products */ = {
@@ -234,6 +226,14 @@
 				9890A6EBCF91715DD579D21E8717053F /* Pods_DZLabel_Tests.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		EAE2782760F1674FBCD77AC4E92D2118 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BD423E2B692B48C5B77A630B805E0A51 /* DZLabel */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,11 +247,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8D0E757938C0ED1FB24115A392823C97 /* Headers */ = {
+		B8ED4824DB81F43096C45AD74D0C5ADF /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF9B85C8B0C6E2FB9D55CB8816D33752 /* DZLabel-umbrella.h in Headers */,
+				DD4181D97EF10858176B1424D6B067BB /* DZLabel-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,13 +302,13 @@
 			productReference = B3FE216ADA50768CE9CE9E7B6CD7CA45 /* Pods_DZLabel_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		F27E025A3CE62D719B2BB4F1814C5AB1 /* DZLabel */ = {
+		75BA7A3E64BF761F275032DB12A020D8 /* DZLabel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1EDA4D1267E0F31A8CEA80E58B8D725 /* Build configuration list for PBXNativeTarget "DZLabel" */;
+			buildConfigurationList = D821ED5C65BA3BB5C891DB4B2C03A568 /* Build configuration list for PBXNativeTarget "DZLabel" */;
 			buildPhases = (
-				755B321005CA7E417C11D13D8682B467 /* Sources */,
-				872F9334FC6A168B54DA82D7A4529A05 /* Frameworks */,
-				8D0E757938C0ED1FB24115A392823C97 /* Headers */,
+				0E2903877FAF73025CBE3B7B6A39D6F4 /* Sources */,
+				303292CAB5CA5B6E36D8F2319A3036EC /* Frameworks */,
+				B8ED4824DB81F43096C45AD74D0C5ADF /* Headers */,
 			);
 			buildRules = (
 			);
@@ -326,12 +326,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 1000;
-				TargetAttributes = {
-					F27E025A3CE62D719B2BB4F1814C5AB1 = {
-						LastSwiftMigration = 1000;
-					};
-				};
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -345,7 +340,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F27E025A3CE62D719B2BB4F1814C5AB1 /* DZLabel */,
+				75BA7A3E64BF761F275032DB12A020D8 /* DZLabel */,
 				676CC9559C8A14A81EBA8C33633D84FC /* Pods-DZLabel_Example */,
 				1CF174EB6FEAADDD26AC01302464D762 /* Pods-DZLabel_Tests */,
 			);
@@ -353,23 +348,23 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0E2903877FAF73025CBE3B7B6A39D6F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8018F7BBD6A0DA27917F4614481CBFCF /* DZAttributedStringGenerator.swift in Sources */,
+				01F184F8783F70C4AC02C28B629941C9 /* DZKeywordTypes.swift in Sources */,
+				F4D1FCF5ACC91F295D393B3F2B941D69 /* DZLabel-dummy.m in Sources */,
+				34E24110617E7D9A296FAF1A528B5E24 /* DZLabel.swift in Sources */,
+				3AB8B96F1C2AC9D6739753DC4D5BD714 /* DZRegex.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5A07A025401F5BF4E987ACE22F1599E5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				919389F52EB87DA96876898F27DA27AE /* Pods-DZLabel_Example-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		755B321005CA7E417C11D13D8682B467 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				566D23F9215CC297001AC32B /* DZAttributedStringGenerator.swift in Sources */,
-				566D23F7215CC297001AC32B /* DZLabel.swift in Sources */,
-				566D23FA215CC297001AC32B /* DZKeywordTypes.swift in Sources */,
-				FB8CD5410368044DD8BE97D68772D101 /* DZLabel-dummy.m in Sources */,
-				566D23F8215CC297001AC32B /* DZRegex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,7 +382,7 @@
 		CD48397C55C953791387C01120805466 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = DZLabel;
-			target = F27E025A3CE62D719B2BB4F1814C5AB1 /* DZLabel */;
+			target = 75BA7A3E64BF761F275032DB12A020D8 /* DZLabel */;
 			targetProxy = D558F272540CE1CAF12901C3269034B6 /* PBXContainerItemProxy */;
 		};
 		E7D9DDBFCDE83E4089AF5F6C3DED76CB /* PBXTargetDependency */ = {
@@ -432,11 +427,10 @@
 			};
 			name = Debug;
 		};
-		319B7B4C085ECA59EE63928619C0A017 /* Debug */ = {
+		3993CF62EAA3EBBD477165FA23C0A698 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E40257866C2A58BAC8ECFC28FB4B32E /* DZLabel.xcconfig */;
+			baseConfigurationReference = 9617C47691E762462300D572DF29C6F4 /* DZLabel.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -458,7 +452,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -562,6 +556,39 @@
 			};
 			name = Debug;
 		};
+		A3238A312ACFEFA96B51C2AAFDBA423F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9617C47691E762462300D572DF29C6F4 /* DZLabel.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/DZLabel/DZLabel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DZLabel/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DZLabel/DZLabel.modulemap";
+				PRODUCT_MODULE_NAME = DZLabel;
+				PRODUCT_NAME = DZLabel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		B42B54097A876E8A982CBF5DAA91B1AB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -616,7 +643,6 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
@@ -691,40 +717,6 @@
 			};
 			name = Debug;
 		};
-		FA6A17B67A3C328C72B9FB2342DE81D9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E40257866C2A58BAC8ECFC28FB4B32E /* DZLabel.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/DZLabel/DZLabel-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/DZLabel/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/DZLabel/DZLabel.modulemap";
-				PRODUCT_MODULE_NAME = DZLabel;
-				PRODUCT_NAME = DZLabel;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -746,20 +738,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1EDA4D1267E0F31A8CEA80E58B8D725 /* Build configuration list for PBXNativeTarget "DZLabel" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				319B7B4C085ECA59EE63928619C0A017 /* Debug */,
-				FA6A17B67A3C328C72B9FB2342DE81D9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		B19A096A70BB32A6EBA5363270B2166F /* Build configuration list for PBXNativeTarget "Pods-DZLabel_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C34AC2C2993DAAC81AE71D5076E59D9A /* Debug */,
 				B520D78147FF44D9E2DBEE4BF934188F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D821ED5C65BA3BB5C891DB4B2C03A568 /* Build configuration list for PBXNativeTarget "DZLabel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3993CF62EAA3EBBD477165FA23C0A698 /* Debug */,
+				A3238A312ACFEFA96B51C2AAFDBA423F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

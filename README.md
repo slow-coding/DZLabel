@@ -24,6 +24,7 @@ var label = DZLabel()
 label.font = UIFont.systemFont(ofSize: 14)
 label.textColor = UIColor.blue
 label.linkColor = UIColor.red
+label.text = "test" // do not use .attributedText
 ```
 
 ### 2. Enable Link Types

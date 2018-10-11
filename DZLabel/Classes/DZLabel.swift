@@ -148,7 +148,9 @@ import UIKit
                 for result in DZRegex.emotionResultsInText(text, pattern: p).reversed() {
                     let code = (text as NSString).substring(with: result.range)
                     let imageName = imageNameBlock(code)
-                    copy.replaceImage(imageName: imageName, with: result.range, bounds: bounds ?? CGRect(x: 0, y: 0, width: font?.lineHeight ?? 0, height: font?.lineHeight ?? 0))
+                    if UIImage(named: imageName) != nil {
+                        copy.replaceImage(imageName: imageName, with: result.range, bounds: bounds ?? CGRect(x: 0, y: 0, width: font?.lineHeight ?? 0, height: font?.lineHeight ?? 0))
+                    }
                 }
             }
             

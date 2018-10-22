@@ -39,6 +39,10 @@ import UIKit
         didSet { _update() }
     }
     
+    @IBInspectable open override var textAlignment: NSTextAlignment {
+        didSet { _update() }
+    }
+    
     private var _mentionTapHandler: ((String) -> Void)?
     open func handleMentionTap(_ handler: @escaping (String) -> Void) {
         _mentionTapHandler = handler
@@ -98,6 +102,9 @@ import UIKit
         let copy = DZAttributedStringGenerator(text: text)
         copy.textColor(textColor)
         copy.font(font)
+        let style = NSMutableParagraphStyle()
+        style.alignment = .center
+        copy.paragraphStyle(style)
         if enabledTypes.contains(.mention) {
             for result in DZRegex.mentionResultsInText(string) {
                 if let keyword = _substringWithNSRange(result.range, text: string) {

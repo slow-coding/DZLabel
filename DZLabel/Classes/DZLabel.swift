@@ -10,76 +10,76 @@ import UIKit
 
 @IBDesignable open class DZLabel: UITextView {
     
+    private let style = NSMutableParagraphStyle()
     
-    open var enabledTypes: [DZKeywordType] = [.mention, .url, .phone, .address] {
+    open var dzEnabledTypes: [DZKeywordType] = [.mention, .url, .phone, .address] {
         didSet { _update() }
     }
-    @IBInspectable open var linkColor: UIColor = .blue {
-        didSet { _setLink(color: linkColor, hasUnderscore: hasUnderscore) }
+    @IBInspectable open var dzLinkColor: UIColor = .blue {
+        didSet { _setLink(color: dzLinkColor, hasUnderscore: dzHasUnderscore) }
     }
-    @IBInspectable open var hasUnderscore: Bool = false {
-        didSet { _setLink(color: linkColor, hasUnderscore: hasUnderscore) }
+    @IBInspectable open var dzHasUnderscore: Bool = false {
+        didSet { _setLink(color: dzLinkColor, hasUnderscore: dzHasUnderscore) }
     }
     
-    private var _textChanged = false
-    @IBInspectable open override var text: String! {
+    @IBInspectable open var dzText: String? {
         didSet {
-            _textChanged = oldValue != text
+            guard let dzText = dzText, !dzText.isEmpty else { return }
             _update()
         }
     }
     
-    @IBInspectable open override var textColor: UIColor? {
+    @IBInspectable open var dzTextColor: UIColor? {
         didSet { _update() }
     }
-    @IBInspectable open var numberOfLines: Int = 0 {
-        didSet { _setNumberOflines(numberOfLines) }
+    @IBInspectable open var dzNumberOfLines: Int = 0 {
+        didSet { _setNumberOflines(dzNumberOfLines) }
     }
-    @IBInspectable open override var font: UIFont? {
+    @IBInspectable open var dzFont: UIFont? {
         didSet { _update() }
     }
     
-    @IBInspectable open override var textAlignment: NSTextAlignment {
+    @IBInspectable open var dzTextAlignment: NSTextAlignment = .left {
         didSet { _update() }
     }
     
     private var _mentionTapHandler: ((String) -> Void)?
-    open func handleMentionTap(_ handler: @escaping (String) -> Void) {
+    open func dzHandleMentionTap(_ handler: @escaping (String) -> Void) {
         _mentionTapHandler = handler
     }
     private var _URLTapHandler: ((String) -> Void)?
-    open func handleURLTap(_ handler: @escaping (String) -> Void) {
+    open func dzHandleURLTap(_ handler: @escaping (String) -> Void) {
         _URLTapHandler = handler
     }
     private var _phoneTapHandler: ((String) -> Void)?
-    open func handlePhoneTap(_ handler: @escaping (String) -> Void) {
+    open func dzHandlePhoneTap(_ handler: @escaping (String) -> Void) {
         _phoneTapHandler = handler
     }
     private var _addressTapHandler: ((String) -> Void)?
-    open func handleAddressTap(_ handler: @escaping (String) -> Void) {
+    open func dzHandleAddressTap(_ handler: @escaping (String) -> Void) {
         _addressTapHandler = handler
     }
     
     private var _keywordLongPressHandler: (() -> Void)?
-    open func handleKeywordLongPress(_ handler: @escaping () -> Void) {
+    open func dzHandleKeywordLongPress(_ handler: @escaping () -> Void) {
         _keywordLongPressHandler = handler
     }
     
     private var _tapHandler: (() -> Void)?
-    open func handleTap(_ handler: @escaping () -> Void) {
+    open func dzHandleTap(_ handler: @escaping () -> Void) {
         _tapHandler = handler
     }
     
     private var _regexKeywordTapHandler: ((String) -> Void)?
-    open func handleRegexKeywordTap(_ handler: @escaping (String) -> Void) {
+    open func dzHandleRegexKeywordTap(_ handler: @escaping (String) -> Void) {
         _regexKeywordTapHandler = handler
     }
     
-//    private var _manualTapHandler: ((String) -> Void)?
-//    open func handleManualTap(_ handler: @escaping (String) -> Void) {
-//        _manualTapHandler = handler
-//    }
-//    
+    //    private var _manualTapHandler: ((String) -> Void)?
+    //    open func handleManualTap(_ handler: @escaping (String) -> Void) {
+    //        _manualTapHandler = handler
+    //    }
+    //
     private let _filePrefix = "file:///"
     
     private func _substringWithNSRange(_ range: NSRange, text: String?) -> NSString? {
@@ -89,99 +89,98 @@ import UIKit
     }
     
     // TODO: 优化空间：add attributes 而不是每次都copy一个attri string
-//    private func currentAttributes() -> [NSAttributedString.Key : Any]? {
-//        var range = NSRange(location: 0, length: 0)
-//        let attributes = attributedText?.attributes(at: 0, effectiveRange: &range)
-//        return attributes
-//    }
+    //    private func currentAttributes() -> [NSAttributedString.Key : Any]? {
+    //        var range = NSRange(location: 0, length: 0)
+    //        let attributes = attributedText?.attributes(at: 0, effectiveRange: &range)
+    //        return attributes
+    //    }
     
     private func _update() {
-        guard let string = text, _textChanged else {
-            return
-        }
-        let copy = DZAttributedStringGenerator(text: text)
-        copy.textColor(textColor)
-        copy.font(font)
-        let style = NSMutableParagraphStyle()
-        style.alignment = .center
-        copy.paragraphStyle(style)
-        if enabledTypes.contains(.mention) {
-            for result in DZRegex.mentionResultsInText(string) {
-                if let keyword = _substringWithNSRange(result.range, text: string) {
-                    var pureKeyword = keyword
-                    if keyword.hasPrefix("@") {
-                        pureKeyword = (keyword as NSString).substring(from: 1) as NSString
-                    }
-                    let url = URL(fileURLWithPath: "\(DZRegex.MentionPrefix)\(pureKeyword)")
-                    if result.range.location + result.range.length <= (text as NSString).length {
-                        copy.link(url: url, range: result.range)
-                    }
-                }
-            }
-        }
         
-        if enabledTypes.contains(.url) {
-            for result in DZRegex.urlResultsInText(string) {
-                if let keyword = _substringWithNSRange(result.range, text: string) {
-                    if keyword.length <= 1020 {
-                        let url = URL(fileURLWithPath: "\(DZRegex.URLPrefix)\(keyword)")
-                        copy.link(url: url, range: result.range)
-                    }
-                }
-            }
-        }
+        let attributedStringGenerator = DZAttributedStringGenerator(text: dzText)
+        attributedStringGenerator.textColor(dzTextColor)
+        attributedStringGenerator.font(dzFont)
+        style.alignment = dzTextAlignment
+        attributedStringGenerator.paragraphStyle(style)
         
-        if enabledTypes.contains(.phone) {
-            for result in DZRegex.phoneNumberResultsInText(string) {
-                if let keyword = _substringWithNSRange(result.range, text: string) {
-                    let url = URL(fileURLWithPath: "\(DZRegex.PhonePrefix)\(keyword)")
-                    copy.link(url: url, range: result.range)
-                }
-            }
-        }
-        
-        if enabledTypes.contains(.address) {
-            for result in DZRegex.mapResultsInText(string) {
-                if let keyword = _substringWithNSRange(result.range, text: string) {
-                    let url = URL(fileURLWithPath: "\(DZRegex.MapPrefix)\(keyword)")
-                    copy.link(url: url, range: result.range)
-                }
-            }
-        }
-        
-        enabledTypes.forEach { type in
-            if case .emoticon(let pattern, let bounds, let imageNameBlock) = type {
-                let p = pattern ?? DZRegex.DZRegexPatternEmotion
-                for result in DZRegex.emotionResultsInText(text, pattern: p).reversed() {
-                    let code = (text as NSString).substring(with: result.range)
-                    let imageName = imageNameBlock(code)
-                    if UIImage(named: imageName) != nil {
-                        copy.replaceImage(imageName: imageName, with: result.range, bounds: bounds ?? CGRect(x: 0, y: 0, width: font?.lineHeight ?? 0, height: font?.lineHeight ?? 0))
+        if let dzText = dzText, !dzText.isEmpty {
+            if dzEnabledTypes.contains(.mention) {
+                for result in DZRegex.mentionResultsInText(dzText) {
+                    if let keyword = _substringWithNSRange(result.range, text: dzText) {
+                        var pureKeyword = keyword
+                        if keyword.hasPrefix("@") {
+                            pureKeyword = (keyword as NSString).substring(from: 1) as NSString
+                        }
+                        let url = URL(fileURLWithPath: "\(DZRegex.MentionPrefix)\(pureKeyword)")
+                        if result.range.location + result.range.length <= (dzText as NSString).length {
+                            attributedStringGenerator.link(url: url, range: result.range)
+                        }
                     }
                 }
             }
             
-            if case .regex(let pattern) = type {
-                for result in DZRegex.resultsInText(text, pattern: pattern) {
-                    if let keyword = _substringWithNSRange(result.range, text: string) {
-                        let url = URL(fileURLWithPath: "\(DZRegex.CustomPrefix)\(keyword)")
-                        copy.link(url: url, range: result.range)
+            if dzEnabledTypes.contains(.url) {
+                for result in DZRegex.urlResultsInText(dzText) {
+                    if let keyword = _substringWithNSRange(result.range, text: dzText) {
+                        if keyword.length <= 1020 {
+                            let url = URL(fileURLWithPath: "\(DZRegex.URLPrefix)\(keyword)")
+                            attributedStringGenerator.link(url: url, range: result.range)
+                        }
                     }
                 }
             }
             
-            // TODO: 需要去掉_textChanged才不串
-//            if case .manual(let range) = type {
-//                if let keyword = _substringWithNSRange(range, text: string) {
-//                    let url = URL(fileURLWithPath: "\(DZRegex.ManualPrefix)\(keyword)")
-//                    copy.link(url: url, range: range)
-//                }
-//            }
+            if dzEnabledTypes.contains(.phone) {
+                for result in DZRegex.phoneNumberResultsInText(dzText) {
+                    if let keyword = _substringWithNSRange(result.range, text: dzText) {
+                        let url = URL(fileURLWithPath: "\(DZRegex.PhonePrefix)\(keyword)")
+                        attributedStringGenerator.link(url: url, range: result.range)
+                    }
+                }
+            }
             
+            if dzEnabledTypes.contains(.address) {
+                for result in DZRegex.mapResultsInText(dzText) {
+                    if let keyword = _substringWithNSRange(result.range, text: dzText) {
+                        let url = URL(fileURLWithPath: "\(DZRegex.MapPrefix)\(keyword)")
+                        attributedStringGenerator.link(url: url, range: result.range)
+                    }
+                }
+            }
+            
+            dzEnabledTypes.forEach { type in
+                if case .emoticon(let pattern, let bounds, let imageNameBlock) = type {
+                    let p = pattern ?? DZRegex.DZRegexPatternEmotion
+                    for result in DZRegex.emotionResultsInText(dzText, pattern: p).reversed() {
+                        let code = (dzText as NSString).substring(with: result.range)
+                        let imageName = imageNameBlock(code)
+                        if UIImage(named: imageName) != nil {
+                            attributedStringGenerator.replaceImage(imageName: imageName, with: result.range, bounds: bounds ?? CGRect(x: 0, y: 0, width: dzFont?.lineHeight ?? 0, height: dzFont?.lineHeight ?? 0))
+                        }
+                    }
+                }
+                
+                if case .regex(let pattern) = type {
+                    for result in DZRegex.resultsInText(dzText, pattern: pattern) {
+                        if let keyword = _substringWithNSRange(result.range, text: dzText) {
+                            let url = URL(fileURLWithPath: "\(DZRegex.CustomPrefix)\(keyword)")
+                            attributedStringGenerator.link(url: url, range: result.range)
+                        }
+                    }
+                }
+                
+                // TODO: 需要去掉_textChanged才不串
+                //            if case .manual(let range) = type {
+                //                if let keyword = _substringWithNSRange(range, text: string) {
+                //                    let url = URL(fileURLWithPath: "\(DZRegex.ManualPrefix)\(keyword)")
+                //                    copy.link(url: url, range: range)
+                //                }
+                //            }
+                
+            }
         }
         
-        
-        attributedText = copy.generateAttributedString
+        attributedText = attributedStringGenerator.generateAttributedString
     }
     
     
@@ -207,11 +206,11 @@ import UIKit
                 _regexKeywordTapHandler?(str)
             }
         }
-//        if url.absoluteString.hasPrefix(_filePrefix + DZRegex.ManualPrefix) {
-//            if let str = (url.absoluteString as NSString).substring(from: (_filePrefix + DZRegex.ManualPrefix).count).removingPercentEncoding {
-//                _manualTapHandler?(str)
-//            }
-//        }
+        //        if url.absoluteString.hasPrefix(_filePrefix + DZRegex.ManualPrefix) {
+        //            if let str = (url.absoluteString as NSString).substring(from: (_filePrefix + DZRegex.ManualPrefix).count).removingPercentEncoding {
+        //                _manualTapHandler?(str)
+        //            }
+        //        }
     }
     
     

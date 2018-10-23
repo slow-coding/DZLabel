@@ -13,9 +13,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let label = DZLabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "testestesteststes[test],[test1],1888888888 http://www.baidu.com @darren"
-        label.enabledTypes = [
+        label.dzFont = UIFont.systemFont(ofSize: 14)
+        label.dzText = "testestesteststes[test],[test1],1888888888 http://www.baidu.com @darren"
+        label.dzEnabledTypes = [
             .address,
             .phone,
             .mention,

@@ -21,15 +21,15 @@
 ### 1. Basic Setup
 ``` swift
 var label = DZLabel()
-label.font = UIFont.systemFont(ofSize: 14)
-label.textColor = UIColor.blue
-label.linkColor = UIColor.red
-label.text = "test" // do not use .attributedText
+label.dzFont = UIFont.systemFont(ofSize: 14)
+label.dzTextColor = UIColor.blue
+label.dzLinkColor = UIColor.red
+label.dzText = "test" // do not use .attributedText or .text
 ```
 
 ### 2. Enable Link Types
 ``` swift
-label.enabledTypes = [
+label.dzEnabledTypes = [
     .address,
     .phone,
     .mention,
@@ -47,27 +47,27 @@ label.enabledTypes = [
 
 ### 3. Handle Callbacks
 ``` swift
-label.handleMentionTap { result in
+label.dzHandleMentionTap { result in
     print("mention tapped" + result)
 }
 
-label.handleURLTap { result in
+label.dzHandleURLTap { result in
     print("url tapped" + result)
 }
 
-label.handlePhoneTap { result in
+label.dzHandlePhoneTap { result in
     print("phone tapped" + result)
 }
 
-label.handleAddressTap { result in
+label.dzHandleAddressTap { result in
     print("address tapped" + result)
 }
 
-label.handleKeywordLongPress {
+label.dzHandleKeywordLongPress {
     print("keyword long pressed")
 }
 
-label.handleRegexKeywordTap { result in
+label.dzHandleRegexKeywordTap { result in
     print("custom regex tapped" + result)
 }
 ```

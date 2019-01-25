@@ -13,7 +13,7 @@ import UIKit
     private let style = NSMutableParagraphStyle()
     let phoneDetector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.phoneNumber.rawValue)
     let mapDetector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.address.rawValue)
-    
+    let workerQueue = DispatchQueue(label: "DZLabel.renderQueue")
     
     open var dzEnabledTypes: [DZKeywordType] = [.mention, .url, .phone, .address] {
         didSet { _update() }
@@ -109,7 +109,7 @@ import UIKit
         
         let textCopy = dzText
         
-        DispatchQueue.global().async { [weak self] in
+        workerQueue.async { [weak self] in
             guard let `self` = self, textCopy == self.dzText else { return }
             if let dzText = self.dzText, !dzText.isEmpty {
                 if self.dzEnabledTypes.contains(.mention) {

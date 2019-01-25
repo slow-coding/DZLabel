@@ -43,23 +43,23 @@ extension DZRegex {
 }
 
 extension DZRegex {
-
+    
     // 检测 电话号
-    class func phoneNumberResultsInText(_ text: String?) -> [NSTextCheckingResult] {
+    class func phoneNumberResultsInText(_ text: String?, detector: NSDataDetector? = nil) -> [NSTextCheckingResult] {
         guard let text = text
             else { return [NSTextCheckingResult]() }
         let input = text
-        let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.phoneNumber.rawValue)
+        let detector = detector ?? (try? NSDataDetector(types: NSTextCheckingResult.CheckingType.phoneNumber.rawValue))
         let matches = detector?.matches(in: input, options: [], range: NSRange(location: 0, length: input.utf16.count))
         return matches ?? [NSTextCheckingResult]()
     }
     
     // 检测 地址
-    class func mapResultsInText(_ text: String?) -> [NSTextCheckingResult] {
+    class func mapResultsInText(_ text: String?, detector: NSDataDetector? = nil) -> [NSTextCheckingResult] {
         guard let text = text
             else { return [NSTextCheckingResult]() }
         let input = text
-        let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.address.rawValue)
+        let detector = detector ?? (try? NSDataDetector(types: NSTextCheckingResult.CheckingType.address.rawValue))
         return detector?.matches(in: input, options: [], range: NSRange(location: 0, length: input.utf16.count)) ?? [NSTextCheckingResult]()
     }
     
@@ -91,5 +91,5 @@ extension DZRegex {
         return matchPattern(DZRegexPatternMention, text: text)
     }
     
-
+    
 }

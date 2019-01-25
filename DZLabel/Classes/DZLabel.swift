@@ -11,6 +11,7 @@ import UIKit
 @IBDesignable open class DZLabel: UITextView {
     
     private let style = NSMutableParagraphStyle()
+    let phoneDetector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.phoneNumber.rawValue)
     let mapDetector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.address.rawValue)
     
     

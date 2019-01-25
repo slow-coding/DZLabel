@@ -191,9 +191,6 @@ import UIKit
                 if self.dzText == textCopy {
                     self.attributedText = attributedStringGenerator.generateAttributedString
                 }
-                else {
-                    print("过滤了 之后");
-                }
             }
         }
         

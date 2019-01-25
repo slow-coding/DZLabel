@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DZLabel'
-  s.version          = '1.0.4'
+  s.version          = '1.0.5'
   s.summary          = 'iOS rich text clickable link label'
 
 # This description is used to generate tags and improve search results.

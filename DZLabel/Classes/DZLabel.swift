@@ -110,7 +110,7 @@ import UIKit
         let textCopy = dzText
         
         DispatchQueue.global().async { [weak self] in
-            guard let `self` = self else { return }
+            guard let `self` = self, textCopy == self.dzText else { return }
             if let dzText = self.dzText, !dzText.isEmpty {
                 if self.dzEnabledTypes.contains(.mention) {
                     for result in DZRegex.mentionResultsInText(dzText) {
@@ -190,6 +190,9 @@ import UIKit
             DispatchQueue.main.async {
                 if self.dzText == textCopy {
                     self.attributedText = attributedStringGenerator.generateAttributedString
+                }
+                else {
+                    print("过滤了 之后");
                 }
             }
         }

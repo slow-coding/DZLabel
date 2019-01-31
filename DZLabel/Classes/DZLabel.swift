@@ -120,7 +120,7 @@ import UIKit
                                 pureKeyword = (keyword as NSString).substring(from: 1) as NSString
                             }
                             let url = URL(fileURLWithPath: "\(DZRegex.MentionPrefix)\(pureKeyword)")
-                            if result.range.location + result.range.length <= (dzText as NSString).length {
+                            if result.range.location + result.range.length <= (dzText as NSString).length, textCopy == self.dzText {
                                 attributedStringGenerator.link(url: url, range: result.range)
                             }
                         }
@@ -130,17 +130,18 @@ import UIKit
                 if self.dzEnabledTypes.contains(.url) {
                     for result in DZRegex.urlResultsInText(dzText) {
                         if let keyword = self._substringWithNSRange(result.range, text: dzText) {
-                            if keyword.length <= 1020 {
+                            if keyword.length <= 1020, textCopy == self.dzText {
                                 let url = URL(fileURLWithPath: "\(DZRegex.URLPrefix)\(keyword)")
                                 attributedStringGenerator.link(url: url, range: result.range)
                             }
+                            
                         }
                     }
                 }
                 
                 if self.dzEnabledTypes.contains(.phone) {
                     for result in DZRegex.phoneNumberResultsInText(dzText, detector: self.phoneDetector) {
-                        if let keyword = self._substringWithNSRange(result.range, text: dzText) {
+                        if let keyword = self._substringWithNSRange(result.range, text: dzText), textCopy == self.dzText {
                             let url = URL(fileURLWithPath: "\(DZRegex.PhonePrefix)\(keyword)")
                             attributedStringGenerator.link(url: url, range: result.range)
                         }
@@ -149,7 +150,7 @@ import UIKit
                 
                 if self.dzEnabledTypes.contains(.address) {
                     for result in DZRegex.mapResultsInText(dzText, detector: self.mapDetector) {
-                        if let keyword = self._substringWithNSRange(result.range, text: dzText) {
+                        if let keyword = self._substringWithNSRange(result.range, text: dzText), textCopy == self.dzText {
                             let url = URL(fileURLWithPath: "\(DZRegex.MapPrefix)\(keyword)")
                             attributedStringGenerator.link(url: url, range: result.range)
                         }
@@ -162,7 +163,7 @@ import UIKit
                         for result in DZRegex.emotionResultsInText(dzText, pattern: p).reversed() {
                             let code = (dzText as NSString).substring(with: result.range)
                             let imageName = imageNameBlock(code)
-                            if UIImage(named: imageName) != nil {
+                            if UIImage(named: imageName) != nil, textCopy == self.dzText{
                                 attributedStringGenerator.replaceImage(imageName: imageName, with: result.range, bounds: bounds ?? CGRect(x: 0, y: 0, width: self.dzFont?.lineHeight ?? 0, height: self.dzFont?.lineHeight ?? 0))
                             }
                         }
@@ -170,7 +171,7 @@ import UIKit
                     
                     if case .regex(let pattern) = type {
                         for result in DZRegex.resultsInText(dzText, pattern: pattern) {
-                            if let keyword = self._substringWithNSRange(result.range, text: dzText) {
+                            if let keyword = self._substringWithNSRange(result.range, text: dzText), textCopy == self.dzText {
                                 let url = URL(fileURLWithPath: "\(DZRegex.CustomPrefix)\(keyword)")
                                 attributedStringGenerator.link(url: url, range: result.range)
                             }

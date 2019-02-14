@@ -6,8 +6,6 @@
 
 import UIKit
 
-
-
 @IBDesignable open class DZLabel: UITextView {
     
     private let style = NSMutableParagraphStyle()
@@ -18,12 +16,16 @@ import UIKit
     open var dzEnabledTypes: [DZKeywordType] = [.mention, .url, .phone, .address] {
         didSet { _update() }
     }
+    
     @IBInspectable open var dzLinkColor: UIColor = .blue {
         didSet { _setLink(color: dzLinkColor, hasUnderscore: dzHasUnderscore) }
     }
+    
     @IBInspectable open var dzHasUnderscore: Bool = false {
         didSet { _setLink(color: dzLinkColor, hasUnderscore: dzHasUnderscore) }
     }
+    
+    @IBInspectable open var dzLinkFont: UIFont? = nil
     
     @IBInspectable open var dzText: String? {
         didSet {
@@ -35,9 +37,11 @@ import UIKit
     @IBInspectable open var dzTextColor: UIColor? {
         didSet { _update() }
     }
+    
     @IBInspectable open var dzNumberOfLines: Int = 0 {
         didSet { _setNumberOflines(dzNumberOfLines) }
     }
+    
     @IBInspectable open var dzFont: UIFont? {
         didSet { _update() }
     }
@@ -50,14 +54,17 @@ import UIKit
     open func dzHandleMentionTap(_ handler: @escaping (String) -> Void) {
         _mentionTapHandler = handler
     }
+    
     private var _URLTapHandler: ((String) -> Void)?
     open func dzHandleURLTap(_ handler: @escaping (String) -> Void) {
         _URLTapHandler = handler
     }
+    
     private var _phoneTapHandler: ((String) -> Void)?
     open func dzHandlePhoneTap(_ handler: @escaping (String) -> Void) {
         _phoneTapHandler = handler
     }
+    
     private var _addressTapHandler: ((String) -> Void)?
     open func dzHandleAddressTap(_ handler: @escaping (String) -> Void) {
         _addressTapHandler = handler
@@ -191,6 +198,9 @@ import UIKit
             DispatchQueue.main.async {
                 if self.dzText == textCopy {
                     self.attributedText = attributedStringGenerator.generateAttributedString
+                    if self.dzLinkFont != nil {
+                        self._setLinkFont(self.dzLinkFont)
+                    }
                 }
             }
         }
@@ -296,6 +306,21 @@ extension DZLabel {
         textContainer.maximumNumberOfLines = lineCount
     }
     
+    fileprivate func _setLinkFont(_ linkFont: UIFont?) {
+        if let font = linkFont  {
+            let originalText = NSMutableAttributedString(attributedString: attributedText)
+            let newString = NSMutableAttributedString(attributedString: attributedText)
+            
+            originalText.enumerateAttributes(in: NSRange(0..<originalText.length), options: .reverse) { (attributes, range, pointer) in
+                if let _ = attributes[NSAttributedString.Key.link] {
+                    newString.removeAttribute(NSAttributedString.Key.font, range: range)
+                    newString.addAttribute(NSAttributedString.Key.font, value: font, range: range)
+                }
+            }
+            
+            attributedText = newString
+        }
+    }
     
     fileprivate func _setLink(color: UIColor?, hasUnderscore: Bool) {
         var dict = linkTextAttributes ?? [String: Any]()
@@ -305,6 +330,7 @@ extension DZLabel {
         if hasUnderscore {
             dict[NSAttributedStringKey.underlineStyle.rawValue] = NSNumber(value: Int8(NSUnderlineStyle.styleSingle.rawValue))
         }
+
         linkTextAttributes = dict
     }
     

@@ -14,6 +14,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let label = DZLabel()
         label.dzFont = UIFont.systemFont(ofSize: 14)
+        label.dzLinkFont = UIFont.systemFont(ofSize: 24)
+        label.dzLinkColor = UIColor.red
         label.dzText = "testestesteststes[test],[test1],1888888888 http://www.baidu.com @darren"
         label.dzEnabledTypes = [
             .address,

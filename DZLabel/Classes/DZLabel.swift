@@ -274,6 +274,9 @@ import UIKit
         }
         tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(DZLabel.tappedTextView))
         addGestureRecognizer(tapRecognizer!)
+        
+        setContentCompressionResistancePriority(.required, for: .horizontal)
+        setContentHuggingPriority(.required, for: .horizontal)
     }
     
     

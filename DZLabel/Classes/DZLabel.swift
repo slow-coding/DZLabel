@@ -276,6 +276,8 @@ import UIKit
         addGestureRecognizer(tapRecognizer!)
         
         setContentCompressionResistancePriority(.required, for: .horizontal)
+        setContentCompressionResistancePriority(.required, for: .vertical)
+
     }
     
     

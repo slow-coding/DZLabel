@@ -8,56 +8,39 @@
 
 import UIKit
 import DZLabel
-import SnapKit
 class ViewController: UIViewController {
-    
-    let attri = DZLabel.prepareAttributedText(
-        text: "fawefawefewfewfwefwaefawef[baiyan]fawefawefwaefwefwfwaefwefw",
-        font: UIFont.systemFont(ofSize: 24),
-        textColor: nil,
-        textAlignment: .left,
-        enabledTypes: [
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let label = DZLabel()
+        label.dzFont = UIFont.systemFont(ofSize: 14)
+//        label.dzLinkFont = UIFont.systemFont(ofSize: 24)
+//        label.dzLinkColor = UIColor.red
+        label.dzText = "testestesteststestestestesteststestestestesteststestestestesteststestestestesteststestestestesteststestestestesteststestestestesteststestestestesteststestestestesteststestestestesteststestestestesteststestestestesteststestestestesteststestestestesteststes[test],[test1],afwefawef http://www.baidu.com @darren"
+        label.dzEnabledTypes = [
             .address,
             .phone,
             .mention,
             .url,
-            .emoticon(
-                pattern: nil,
-                bounds: nil,
-                imageNameBlock: ({ name in
+            .emoticon(pattern: nil, // By default: "[EmoticonName]"
+                bounds: nil, // Position and Size
+                imageNameBlock: ({ name in // Text -> Local Image Name
                     var imageName = name
                     if imageName.hasPrefix("[") { imageName.removeFirst() }
                     if imageName.hasSuffix("]") { imageName.removeLast() }
-                    return imageName})
-            ),
+                    return imageName})),
             .regex(pattern: "AM|PM"),
-            ]
-    )
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        let label = DZLabel()
-    
-        label.isScrollEnabled = false
+        ]
+        label.frame = CGRect(x: 0, y: 200, width: UIScreen.main.bounds.size.width, height: 200)
         view.addSubview(label)
-        label.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(200)
-            $0.left.equalToSuperview().offset(0)
-            $0.right.equalToSuperview().offset(-0)
-        }
-        label.dzAttributedText = attri
-        label.layer.borderWidth = 0.5
-
-       
+        
+        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
 
 }
 

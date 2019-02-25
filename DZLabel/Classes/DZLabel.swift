@@ -8,6 +8,8 @@ import UIKit
 
 @IBDesignable open class DZLabel: UITextView {
     
+    open weak var dzTableView: UITableView?
+    
     private let style = NSMutableParagraphStyle()
     let phoneDetector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.phoneNumber.rawValue)
     let mapDetector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.address.rawValue)
@@ -206,12 +208,20 @@ import UIKit
                     
                 }
             }
+            sleep(1)
             DispatchQueue.main.async {
                 if self.dzText == textCopy {
+                    attributedStringGenerator.textColor(self.dzTextColor)
+                    attributedStringGenerator.font(self.dzFont)
+                    self.style.alignment = self.dzTextAlignment
+                    attributedStringGenerator.paragraphStyle(self.style)
+                    self.dzTableView?.beginUpdates()
                     self.attributedText = attributedStringGenerator.generateAttributedString
+                    self.dzTableView?.endUpdates()
                     if self.dzLinkFont != nil {
                         self._setLinkFont(self.dzLinkFont)
                     }
+                    
                 }
             }
         }

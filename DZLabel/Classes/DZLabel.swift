@@ -171,7 +171,18 @@ import UIKit
                             let code = (dzText as NSString).substring(with: result.range)
                             let imageName = imageNameBlock(code)
                             if UIImage(named: imageName) != nil, textCopy == self.dzText{
-                                attributedStringGenerator.replaceImage(imageName: imageName, with: result.range, bounds: bounds ?? CGRect(x: 0, y: 0, width: self.dzFont?.lineHeight ?? 0, height: self.dzFont?.lineHeight ?? 0))
+                                
+                                
+                                var attachmentBounds = bounds
+                                if attachmentBounds == nil {
+                                    if self.dzFont == nil {
+                                        attachmentBounds = CGRect(x: 0, y: 0, width: 0, height: 0)
+                                    }
+                                    else {
+                                        attachmentBounds = CGRect(x: 0, y: self.dzFont!.descender, width: self.dzFont!.lineHeight, height: self.dzFont!.lineHeight)
+                                    }
+                                }
+                                attributedStringGenerator.replaceImage(imageName: imageName, with: result.range, bounds: attachmentBounds)
                             }
                         }
                     }

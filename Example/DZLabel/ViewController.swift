@@ -14,16 +14,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let label = DZLabel()
         label.dzFont = UIFont.systemFont(ofSize: 14)
-        label.dzLinkFont = UIFont.systemFont(ofSize: 24)
-        label.dzLinkColor = UIColor.red
-        label.dzText = "testestesteststes[test],[test1],1888888888 http://www.baidu.com @darren"
+//        label.dzLinkFont = UIFont.systemFont(ofSize: 24)
+//        label.dzLinkColor = UIColor.red
+        label.dzText = "testestesteststestestestesteststestestestesteststestestestesteststestestestesteststestestestesteststestestestesteststestestestesteststestestestesteststestestestesteststestestestesteststestestestesteststestestestesteststestestestesteststestestestesteststes[test],[test1],afwefawef http://www.baidu.com @darren"
         label.dzEnabledTypes = [
             .address,
             .phone,
             .mention,
             .url,
             .emoticon(pattern: nil, // By default: "[EmoticonName]"
-                bounds: CGRect(x: 0, y: -2, width: 20, height: 20), // Position and Size
+                bounds: nil, // Position and Size
                 imageNameBlock: ({ name in // Text -> Local Image Name
                     var imageName = name
                     if imageName.hasPrefix("[") { imageName.removeFirst() }

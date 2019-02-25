@@ -285,16 +285,18 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DZLabel_Example/Pods-DZLabel_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DZLabel_Example/Pods-DZLabel_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DZLabel/DZLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DZLabel_Example/Pods-DZLabel_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DZLabel_Example/Pods-DZLabel_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C2EC41BCC93405C865F496E0 /* [CP] Check Pods Manifest.lock */ = {

@@ -1,23 +1,16 @@
 PODS:
-  - DZLabel (1.1.4)
-  - SnapKit (4.2.0)
+  - DZLabel (1.0.1)
 
 DEPENDENCIES:
   - DZLabel (from `../`)
-  - SnapKit
-
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - SnapKit
 
 EXTERNAL SOURCES:
   DZLabel:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DZLabel: d6649cdbc2eaea5ccefa2af9fb2df9492009f0e7
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  DZLabel: 647d3e63cd6a94be0d4b117c565c982e4a921914
 
-PODFILE CHECKSUM: ceb618cb92a20bad5b5308a435f2be3ba5c3f879
+PODFILE CHECKSUM: cae84a9c2a7acb27df628b9fd33d3cbceefc9967
 
 COCOAPODS: 1.5.3

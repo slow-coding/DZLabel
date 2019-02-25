@@ -225,17 +225,14 @@ public extension DZAttributedStringGenerator {
     public func replaceImage(imageName: String, with range: NSRange, bounds: CGRect? = nil) -> Self {
         let textAttachment = NSTextAttachment()
         textAttachment.image = UIImage(named: imageName)
-
         if let font = attributes[NSAttributedStringKey.font] as? UIFont {
             textAttachment.bounds = CGRect(x: 0, y: font.descender, width: font.lineHeight, height: font.lineHeight)
         }
         if let bounds = bounds {
             textAttachment.bounds = bounds
         }
-//        attributes[NSAttributedStringKey.attachment] = textAttachment
-        
+        attributes[NSAttributedStringKey.attachment] = textAttachment
         attributedString?.replaceCharacters(in: range, with: NSAttributedString(attachment: textAttachment))
-        
         return self
     }
     

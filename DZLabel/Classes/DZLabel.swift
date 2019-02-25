@@ -208,7 +208,6 @@ import UIKit
                     
                 }
             }
-            sleep(1)
             DispatchQueue.main.async {
                 if self.dzText == textCopy {
                     attributedStringGenerator.textColor(self.dzTextColor)

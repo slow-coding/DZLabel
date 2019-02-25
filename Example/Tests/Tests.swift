@@ -1,5 +1,4 @@
 import XCTest
-import DZLabel
 
 class Tests: XCTestCase {
     

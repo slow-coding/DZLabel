@@ -8,23 +8,32 @@ import UIKit
 
 @IBDesignable open class DZLabel: UITextView {
     
-    open weak var dzTableView: UITableView?
+//    open weak var dzTableView: UITableView?
     
     private let style = NSMutableParagraphStyle()
     let phoneDetector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.phoneNumber.rawValue)
     let mapDetector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.address.rawValue)
-    let workerQueue = DispatchQueue(label: "DZLabel.renderQueue")
+//    let workerQueue = DispatchQueue(label: "DZLabel.renderQueue")
     
     open var dzEnabledTypes: [DZKeywordType] = [.mention, .url, .phone, .address] {
-        didSet { _update() }
+        didSet {
+            guard dzEnabledTypes != oldValue else { return }
+            _update()
+        }
     }
     
     @IBInspectable open var dzLinkColor: UIColor = .blue {
-        didSet { _setLink(color: dzLinkColor, hasUnderscore: dzHasUnderscore) }
+        didSet {
+            guard dzLinkColor != oldValue else { return }
+            _setLink(color: dzLinkColor, hasUnderscore: dzHasUnderscore)
+        }
     }
     
     @IBInspectable open var dzHasUnderscore: Bool = false {
-        didSet { _setLink(color: dzLinkColor, hasUnderscore: dzHasUnderscore) }
+        didSet {
+            guard dzHasUnderscore != oldValue else { return }
+            _setLink(color: dzLinkColor, hasUnderscore: dzHasUnderscore)
+        }
     }
     
     @IBInspectable open var dzLinkFont: UIFont? = nil
@@ -32,24 +41,37 @@ import UIKit
     @IBInspectable open var dzText: String? {
         didSet {
             guard let dzText = dzText, !dzText.isEmpty else { return }
+            guard dzText != oldValue else { return }
             _update()
         }
     }
     
     @IBInspectable open var dzTextColor: UIColor? {
-        didSet { _update() }
+        didSet {
+            guard dzTextColor != oldValue else { return }
+            _update()
+        }
     }
     
     @IBInspectable open var dzNumberOfLines: Int = 0 {
-        didSet { _setNumberOflines(dzNumberOfLines) }
+        didSet {
+            guard dzNumberOfLines != oldValue else { return }
+            _setNumberOflines(dzNumberOfLines)
+        }
     }
     
     @IBInspectable open var dzFont: UIFont? {
-        didSet { _update() }
+        didSet {
+            guard dzFont != oldValue else { return }
+            _update()
+        }
     }
     
     @IBInspectable open var dzTextAlignment: NSTextAlignment = .left {
-        didSet { _update() }
+        didSet {
+            guard dzTextAlignment != oldValue else { return }
+            _update()
+        }
     }
     
     private var _mentionTapHandler: ((String) -> Void)?
@@ -110,16 +132,16 @@ import UIKit
     private func _update() {
         
         let attributedStringGenerator = DZAttributedStringGenerator(text: dzText)
-        attributedStringGenerator.textColor(dzTextColor)
-        attributedStringGenerator.font(dzFont)
-        style.alignment = dzTextAlignment
-        attributedStringGenerator.paragraphStyle(style)
-        attributedText = attributedStringGenerator.generateAttributedString
-        
-        let textCopy = dzText
-        
-        workerQueue.async { [weak self] in
-            guard let `self` = self, textCopy == self.dzText else { return }
+//        attributedStringGenerator.textColor(dzTextColor)
+//        attributedStringGenerator.font(dzFont)
+//        style.alignment = dzTextAlignment
+//        attributedStringGenerator.paragraphStyle(style)
+//        attributedText = attributedStringGenerator.generateAttributedString
+//
+//        let textCopy = dzText
+//
+//        workerQueue.async { [weak self] in
+//            guard let `self` = self, textCopy == self.dzText else { return }
             if let dzText = self.dzText, !dzText.isEmpty {
                 if self.dzEnabledTypes.contains(.mention) {
                     for result in DZRegex.mentionResultsInText(dzText) {
@@ -129,7 +151,7 @@ import UIKit
                                 pureKeyword = (keyword as NSString).substring(from: 1) as NSString
                             }
                             let url = URL(fileURLWithPath: "\(DZRegex.MentionPrefix)\(pureKeyword)")
-                            if result.range.location + result.range.length <= (dzText as NSString).length, textCopy == self.dzText {
+                            if result.range.location + result.range.length <= (dzText as NSString).length {
                                 attributedStringGenerator.link(url: url, range: result.range)
                             }
                         }
@@ -139,7 +161,7 @@ import UIKit
                 if self.dzEnabledTypes.contains(.url) {
                     for result in DZRegex.urlResultsInText(dzText) {
                         if let keyword = self._substringWithNSRange(result.range, text: dzText) {
-                            if keyword.length <= 1020, textCopy == self.dzText {
+                            if keyword.length <= 1020 {
                                 let url = URL(fileURLWithPath: "\(DZRegex.URLPrefix)\(keyword)")
                                 attributedStringGenerator.link(url: url, range: result.range)
                             }
@@ -150,7 +172,7 @@ import UIKit
                 
                 if self.dzEnabledTypes.contains(.phone) {
                     for result in DZRegex.phoneNumberResultsInText(dzText, detector: self.phoneDetector) {
-                        if let keyword = self._substringWithNSRange(result.range, text: dzText), textCopy == self.dzText {
+                        if let keyword = self._substringWithNSRange(result.range, text: dzText) {
                             let url = URL(fileURLWithPath: "\(DZRegex.PhonePrefix)\(keyword)")
                             attributedStringGenerator.link(url: url, range: result.range)
                         }
@@ -159,7 +181,7 @@ import UIKit
                 
                 if self.dzEnabledTypes.contains(.address) {
                     for result in DZRegex.mapResultsInText(dzText, detector: self.mapDetector) {
-                        if let keyword = self._substringWithNSRange(result.range, text: dzText), textCopy == self.dzText {
+                        if let keyword = self._substringWithNSRange(result.range, text: dzText) {
                             let url = URL(fileURLWithPath: "\(DZRegex.MapPrefix)\(keyword)")
                             attributedStringGenerator.link(url: url, range: result.range)
                         }
@@ -172,7 +194,7 @@ import UIKit
                         for result in DZRegex.emotionResultsInText(dzText, pattern: p).reversed() {
                             let code = (dzText as NSString).substring(with: result.range)
                             let imageName = imageNameBlock(code)
-                            if UIImage(named: imageName) != nil, textCopy == self.dzText{
+                            if UIImage(named: imageName) != nil {
                                 
                                 
                                 var attachmentBounds = bounds
@@ -191,7 +213,7 @@ import UIKit
                     
                     if case .regex(let pattern) = type {
                         for result in DZRegex.resultsInText(dzText, pattern: pattern) {
-                            if let keyword = self._substringWithNSRange(result.range, text: dzText), textCopy == self.dzText {
+                            if let keyword = self._substringWithNSRange(result.range, text: dzText) {
                                 let url = URL(fileURLWithPath: "\(DZRegex.CustomPrefix)\(keyword)")
                                 attributedStringGenerator.link(url: url, range: result.range)
                             }
@@ -207,24 +229,24 @@ import UIKit
                     //            }
                     
                 }
-            }
-            DispatchQueue.main.async {
-                if self.dzText == textCopy {
+//            }
+//            DispatchQueue.main.async {
+//                if self.dzText == textCopy {
                     attributedStringGenerator.textColor(self.dzTextColor)
                     attributedStringGenerator.font(self.dzFont)
                     self.style.alignment = self.dzTextAlignment
                     attributedStringGenerator.paragraphStyle(self.style)
-                    self.dzTableView?.beginUpdates()
+//                    self.dzTableView?.beginUpdates()
                     self.attributedText = attributedStringGenerator.generateAttributedString
-                    self.dzTableView?.endUpdates()
+//                    self.dzTableView?.endUpdates()
                     if self.dzLinkFont != nil {
                         self._setLinkFont(self.dzLinkFont)
                     }
                     
                 }
-            }
-        }
-        
+//            }
+//        }
+    
     }
     
     

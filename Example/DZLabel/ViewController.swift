@@ -46,12 +46,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for:indexPath) as! MyCell
-        cell.label.dzTableView = tableView
+//        cell.label.dzTableView = tableView
         cell.label.dzText = "范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把[test]范把范把范把范把范把范把范把范把范把范把范把范把"
         return cell
     }

@@ -109,6 +109,11 @@ import UIKit
         _regexKeywordTapHandler = handler
     }
     
+    private var _regexPreRenderTapHandler: ((String) -> Void)?
+    open func dzHandlePreRenderTap(_ handler: @escaping (String) -> Void) {
+        _regexPreRenderTapHandler = handler
+    }
+    
     //    private var _manualTapHandler: ((String) -> Void)?
     //    open func handleManualTap(_ handler: @escaping (String) -> Void) {
     //        _manualTapHandler = handler
@@ -255,22 +260,31 @@ import UIKit
             if let str = (url.absoluteString as NSString).substring(from: (_filePrefix + DZRegex.MentionPrefix).count).removingPercentEncoding {
                 _mentionTapHandler?(str)
             }
+            return
         }
         if url.absoluteString.hasPrefix(_filePrefix + DZRegex.URLPrefix) {
             _URLTapHandler?((url.absoluteString as NSString).substring(from: (_filePrefix + DZRegex.URLPrefix).count))
+            return
         }
         if url.absoluteString.hasPrefix(_filePrefix + DZRegex.PhonePrefix) {
             _phoneTapHandler?((url.absoluteString as NSString).substring(from: (_filePrefix + DZRegex.PhonePrefix).count))
+            return
         }
         if url.absoluteString.hasPrefix(_filePrefix + DZRegex.MapPrefix) {
             if let str = (url.absoluteString as NSString).substring(from: (_filePrefix + DZRegex.MapPrefix).count).removingPercentEncoding {
                 _addressTapHandler?(str)
             }
+            return
         }
         if url.absoluteString.hasPrefix(_filePrefix + DZRegex.CustomPrefix) {
             if let str = (url.absoluteString as NSString).substring(from: (_filePrefix + DZRegex.CustomPrefix).count).removingPercentEncoding {
                 _regexKeywordTapHandler?(str)
             }
+            return
+        }
+        
+        if let str = (url.absoluteString as NSString).substring(from: (_filePrefix).count).removingPercentEncoding {
+            _regexPreRenderTapHandler?(str)
         }
         //        if url.absoluteString.hasPrefix(_filePrefix + DZRegex.ManualPrefix) {
         //            if let str = (url.absoluteString as NSString).substring(from: (_filePrefix + DZRegex.ManualPrefix).count).removingPercentEncoding {

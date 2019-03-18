@@ -52,7 +52,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for:indexPath) as! MyCell
 //        cell.label.dzTableView = tableView
-        cell.label.dzText = "范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把[test]范把范把范把范把范把范把范把范把范把范把范把范把"
+//        cell.label.dzText = "范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把[test]范把范把范把范把范把范把范把范把范把范把范把范把"
+        let attri = DZAttributedStringGenerator(text: "今天")
+        attri.link(url: URL(fileURLWithPath: "123"))
+        
+        
+        cell.label.attributedText = attri.generateAttributedString
+ 
+        cell.label.dzHandlePreRenderTap { aaa in
+            print(aaa)
+        }
         return cell
     }
 }
@@ -62,24 +71,24 @@ class MyCell: UITableViewCell {
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        label.dzFont = UIFont.systemFont(ofSize: 24)
+//        label.dzFont = UIFont.systemFont(ofSize: 24)
         //        label.dzLinkFont = UIFont.systemFont(ofSize: 24)
         //        label.dzLinkColor = UIColor.red
  
-        label.dzEnabledTypes = [
-            .address,
-            .phone,
-            .mention,
-            .url,
-            .emoticon(pattern: nil, // By default: "[EmoticonName]"
-                bounds: nil, // Position and Size
-                imageNameBlock: ({ name in // Text -> Local Image Name
-                    var imageName = name
-                    if imageName.hasPrefix("[") { imageName.removeFirst() }
-                    if imageName.hasSuffix("]") { imageName.removeLast() }
-                    return imageName})),
-            .regex(pattern: "AM|PM"),
-        ]
+//        label.dzEnabledTypes = [
+//            .address,
+//            .phone,
+//            .mention,
+//            .url,
+//            .emoticon(pattern: nil, // By default: "[EmoticonName]"
+//                bounds: nil, // Position and Size
+//                imageNameBlock: ({ name in // Text -> Local Image Name
+//                    var imageName = name
+//                    if imageName.hasPrefix("[") { imageName.removeFirst() }
+//                    if imageName.hasSuffix("]") { imageName.removeLast() }
+//                    return imageName})),
+//            .regex(pattern: "AM|PM"),
+//        ]
 //        label.frame = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height)
         contentView.addSubview(label)
         label.layer.borderWidth = 0.5

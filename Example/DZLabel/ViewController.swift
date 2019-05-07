@@ -53,8 +53,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for:indexPath) as! MyCell
 //        cell.label.dzTableView = tableView
 //        cell.label.dzText = "范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把[test]范把范把范把范把范把范把范把范把范把范把范把范把"
-        let attri = DZAttributedStringGenerator(text: "今天")
-        attri.link(url: URL(fileURLWithPath: "123"))
+        let attri = DZAttributedStringGenerator(text: "123")
         
         
         cell.label.attributedText = attri.generateAttributedString

@@ -17,7 +17,7 @@ let tableView = UITableView()
         
         
         tableView.register(MyCell.self, forCellReuseIdentifier: "Cell")
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44
         tableView.dataSource = self
         tableView.delegate = self
@@ -51,15 +51,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for:indexPath) as! MyCell
-//        cell.label.dzTableView = tableView
-//        cell.label.dzText = "范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把范把[test]范把范把范把范把范把范把范把范把范把范把范把范把"
-        let attri = DZAttributedStringGenerator(text: "123")
+        cell.label.dzText = "范把范把范把范把 http://www.baidu.com 范把范把范把范 http://www.google.com 范把范把范把范把范把范把范把[test]范把范把范把范把范把范把范把范把范把范把范把范把"
+//        let attri = DZAttributedStringGenerator(text: "123[test]")
         
         
-        cell.label.attributedText = attri.generateAttributedString
+//        cell.label.attributedText = attri.generateAttributedString
  
         cell.label.dzHandlePreRenderTap { aaa in
             print(aaa)
+        }
+        cell.label.dzHandleURLTap { url in
+            print(url)
         }
         return cell
     }
@@ -68,26 +70,26 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 class MyCell: UITableViewCell {
     var label = DZLabel()
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 //        label.dzFont = UIFont.systemFont(ofSize: 24)
         //        label.dzLinkFont = UIFont.systemFont(ofSize: 24)
         //        label.dzLinkColor = UIColor.red
  
-//        label.dzEnabledTypes = [
-//            .address,
-//            .phone,
-//            .mention,
-//            .url,
-//            .emoticon(pattern: nil, // By default: "[EmoticonName]"
-//                bounds: nil, // Position and Size
-//                imageNameBlock: ({ name in // Text -> Local Image Name
-//                    var imageName = name
-//                    if imageName.hasPrefix("[") { imageName.removeFirst() }
-//                    if imageName.hasSuffix("]") { imageName.removeLast() }
-//                    return imageName})),
-//            .regex(pattern: "AM|PM"),
-//        ]
+        label.dzEnabledTypes = [
+            .address,
+            .phone,
+            .mention,
+            .url,
+            .emoticon(pattern: nil, // By default: "[EmoticonName]"
+                bounds: nil, // Position and Size
+                imageNameBlock: ({ name in // Text -> Local Image Name
+                    var imageName = name
+                    if imageName.hasPrefix("[") { imageName.removeFirst() }
+                    if imageName.hasSuffix("]") { imageName.removeLast() }
+                    return imageName})),
+            .regex(pattern: "AM|PM"),
+        ]
 //        label.frame = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height)
         contentView.addSubview(label)
         label.layer.borderWidth = 0.5

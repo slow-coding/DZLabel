@@ -31,7 +31,7 @@ iOS rich text clickable link label, an replacement of UILabel
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'DZLabel/Classes/**/*'
-  s.swift_version = '5'
+  s.swift_version = '4'
   # s.resource_bundles = {
   #   'DZLabel' => ['DZLabel/Assets/*.png']
   # }

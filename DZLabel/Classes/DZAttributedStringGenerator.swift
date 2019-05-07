@@ -76,7 +76,7 @@ public class DZAttributedStringGenerator {
     public var item: NSMutableAttributedString?
     
     fileprivate var attributedString: NSMutableAttributedString?
-    fileprivate var attributes = [NSAttributedStringKey: Any]()
+    fileprivate var attributes = [NSAttributedString.Key: Any]()
     fileprivate var style: NSMutableParagraphStyle?
     fileprivate var styleRange: NSRange?
     
@@ -91,24 +91,24 @@ public class DZAttributedStringGenerator {
 public extension DZAttributedStringGenerator {
     
     /// end 1 -> NSMutableAttributedString
-    public var generateAttributedString: NSMutableAttributedString? {
+    var generateAttributedString: NSMutableAttributedString? {
         if let style = style, let string = attributedString?.string {
-            attributedString?.addAttributes([NSAttributedStringKey.paragraphStyle: style], range:  styleRange ?? fullRange(string) )
+            attributedString?.addAttributes([NSAttributedString.Key.paragraphStyle: style], range:  styleRange ?? fullRange(string) )
         }
         return attributedString
     }
     
     /// end 2 -> Attributes
-    public var generateAttributes: [NSAttributedStringKey: Any]? {
+    var generateAttributes: [NSAttributedString.Key: Any]? {
         if let style = style {
-            attributes[NSAttributedStringKey.paragraphStyle] = style
+            attributes[NSAttributedString.Key.paragraphStyle] = style
         }
         return attributes
     }
     
     // append
     @discardableResult
-    public func appendAttributedString(_ attri: NSAttributedString?) -> Self {
+    func appendAttributedString(_ attri: NSAttributedString?) -> Self {
         if let attri = attri {
             attributedString?.append(attri)
         }
@@ -117,7 +117,7 @@ public extension DZAttributedStringGenerator {
     
     // append
     @discardableResult
-    public func appendString(_ string: String?) -> Self {
+    func appendString(_ string: String?) -> Self {
         if let string = string {
             attributedString?.append(NSAttributedString(string: string))
         }
@@ -126,7 +126,7 @@ public extension DZAttributedStringGenerator {
     
     // replace
     @discardableResult
-    public func replaceCharacters(in range: NSRange, with attrString: NSAttributedString?) -> Self {
+    func replaceCharacters(in range: NSRange, with attrString: NSAttributedString?) -> Self {
         if let attrString = attrString {
             attributedString?.replaceCharacters(in: range, with: attrString)
         }
@@ -135,7 +135,7 @@ public extension DZAttributedStringGenerator {
     
     // insert
     @discardableResult
-    public func insert(_ attrString: NSAttributedString?, at loc: Int) -> Self {
+    func insert(_ attrString: NSAttributedString?, at loc: Int) -> Self {
         if let attrString = attrString {
             attributedString?.insert(attrString, at: loc)
         }
@@ -144,7 +144,7 @@ public extension DZAttributedStringGenerator {
     
     // delete
     @discardableResult
-    public func deleteCharacters(in range: NSRange) -> Self {
+    func deleteCharacters(in range: NSRange) -> Self {
         attributedString?.deleteCharacters(in: range)
         return self
     }
@@ -160,34 +160,34 @@ public extension DZAttributedStringGenerator {
     }
     
     @discardableResult
-    public func font(_ font: UIFont?, range: NSRange? = nil) -> Self {
+    func font(_ font: UIFont?, range: NSRange? = nil) -> Self {
         guard let font = font, let string = attributedString?.string else {
             return self
         }
-        attributes[NSAttributedStringKey.font] = font
-        attributedString?.addAttributes([NSAttributedStringKey.font: font], range: range ?? fullRange(string))
+        attributes[NSAttributedString.Key.font] = font
+        attributedString?.addAttributes([NSAttributedString.Key.font: font], range: range ?? fullRange(string))
         return self
     }
     
     @discardableResult
-    public func textColor(_ color: UIColor?, range: NSRange? = nil) -> Self {
+    func textColor(_ color: UIColor?, range: NSRange? = nil) -> Self {
         guard let color = color, let string = attributedString?.string else {
             return self
         }
-        attributes[NSAttributedStringKey.foregroundColor] = color
-        attributedString?.addAttributes([NSAttributedStringKey.foregroundColor: color], range: range ?? fullRange(string))
+        attributes[NSAttributedString.Key.foregroundColor] = color
+        attributedString?.addAttributes([NSAttributedString.Key.foregroundColor: color], range: range ?? fullRange(string))
         return self
     }
     
     @discardableResult
-    public func underline(color: UIColor?, range: NSRange? = nil) -> Self {
+    func underline(color: UIColor?, range: NSRange? = nil) -> Self {
         guard let string = attributedString?.string else {
             return self
         }
-        var attri: [NSAttributedStringKey: Any] = [NSAttributedStringKey.underlineStyle: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue)]
+        var attri: [NSAttributedString.Key: Any] = [NSAttributedString.Key.underlineStyle: NSNumber(value: NSUnderlineStyle.single.rawValue)]
         
         if let color = color {
-            attri[NSAttributedStringKey.underlineColor] = color
+            attri[NSAttributedString.Key.underlineColor] = color
         }
         attri.forEach {
             attributes[$0.0] = $0.1
@@ -197,41 +197,41 @@ public extension DZAttributedStringGenerator {
     }
     
     @discardableResult
-    public func link(url: URL?, range: NSRange? = nil) -> Self {
+    func link(url: URL?, range: NSRange? = nil) -> Self {
         guard let url = url, let string = attributedString?.string else {
             return self
         }
-        attributes[NSAttributedStringKey.link] = url
-        attributedString?.addAttributes([NSAttributedStringKey.link: url], range: range ?? fullRange(string))
+        attributes[NSAttributedString.Key.link] = url
+        attributedString?.addAttributes([NSAttributedString.Key.link: url], range: range ?? fullRange(string))
         return self
     }
     
     @discardableResult
-    public func insertImage(imageName: String, at index: Int, bounds: CGRect? = nil) -> Self {
+    func insertImage(imageName: String, at index: Int, bounds: CGRect? = nil) -> Self {
         let textAttachment = NSTextAttachment()
         textAttachment.image = UIImage(named: imageName)
-        if let font = attributes[NSAttributedStringKey.font] as? UIFont {
+        if let font = attributes[NSAttributedString.Key.font] as? UIFont {
             textAttachment.bounds = CGRect(x: 0, y: font.descender, width: font.lineHeight, height: font.lineHeight)
         }
         if let bounds = bounds {
             textAttachment.bounds = bounds
         }
-        attributes[NSAttributedStringKey.attachment] = textAttachment
+        attributes[NSAttributedString.Key.attachment] = textAttachment
         attributedString?.insert(NSAttributedString(attachment: textAttachment), at: index)
         return self
     }
     
     @discardableResult
-    public func replaceImage(imageName: String, with range: NSRange, bounds: CGRect? = nil) -> Self {
+    func replaceImage(imageName: String, with range: NSRange, bounds: CGRect? = nil) -> Self {
         let textAttachment = NSTextAttachment()
         textAttachment.image = UIImage(named: imageName)
-        if let font = attributes[NSAttributedStringKey.font] as? UIFont {
+        if let font = attributes[NSAttributedString.Key.font] as? UIFont {
             textAttachment.bounds = CGRect(x: 0, y: font.descender, width: font.lineHeight, height: font.lineHeight)
         }
         if let bounds = bounds {
             textAttachment.bounds = bounds
         }
-        attributes[NSAttributedStringKey.attachment] = textAttachment
+        attributes[NSAttributedString.Key.attachment] = textAttachment
         attributedString?.replaceCharacters(in: range, with: NSAttributedString(attachment: textAttachment))
         return self
     }
@@ -242,7 +242,7 @@ public extension DZAttributedStringGenerator {
 
 public extension DZAttributedStringGenerator {
     @discardableResult
-    public func paragraphStyle(_ style :NSMutableParagraphStyle?, range: NSRange? = nil) -> Self {
+    func paragraphStyle(_ style :NSMutableParagraphStyle?, range: NSRange? = nil) -> Self {
         self.style = style
         self.styleRange = range
         return self
@@ -269,13 +269,13 @@ public class DZMakeParagraphStyle {
 public extension DZMakeParagraphStyle {
     
     @discardableResult
-    public func alignment(_ alignment: NSTextAlignment) -> Self {
+    func alignment(_ alignment: NSTextAlignment) -> Self {
         paragraphStyle.alignment = alignment
         return self
     }
     
     @discardableResult
-    public func lineBreakMode(_ lineBreakMode: NSLineBreakMode, range: NSRange? = nil) -> Self {
+    func lineBreakMode(_ lineBreakMode: NSLineBreakMode, range: NSRange? = nil) -> Self {
         paragraphStyle.lineBreakMode = lineBreakMode
         return self
     }

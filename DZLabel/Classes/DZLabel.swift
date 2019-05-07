@@ -349,8 +349,8 @@ extension DZLabel {
         var urlTapped = false
         if let tapLocation = tapRecognizer?.location(in: self) {
             if let textPosition = self.closestPosition(to: tapLocation) {
-                let attr: [String : Any] = self.textStyling(at: textPosition, in: UITextStorageDirection.forward) ?? [String : Any]()
-                if let url: URL = attr[NSAttributedStringKey.link.rawValue] as? URL {
+                let attr: [NSAttributedString.Key : Any] = self.textStyling(at: textPosition, in: UITextStorageDirection.forward) ?? [NSAttributedString.Key : Any]()
+                if let url: URL = attr[NSAttributedString.Key.link] as? URL {
                     _handleTapURL(url)
                     urlTapped = true
                 }
@@ -383,12 +383,12 @@ extension DZLabel {
     }
     
     fileprivate func _setLink(color: UIColor?, hasUnderscore: Bool) {
-        var dict = linkTextAttributes ?? [String: Any]()
+        var dict = linkTextAttributes ?? [NSAttributedString.Key: Any]()
         if let color = color {
-            dict[NSAttributedStringKey.foregroundColor.rawValue] = color
+            dict[NSAttributedString.Key.foregroundColor] = color
         }
         if hasUnderscore {
-            dict[NSAttributedStringKey.underlineStyle.rawValue] = NSNumber(value: Int8(NSUnderlineStyle.styleSingle.rawValue))
+            dict[NSAttributedString.Key.underlineStyle] = NSNumber(value: Int8(NSUnderlineStyle.single.rawValue))
         }
 
         linkTextAttributes = dict
@@ -409,7 +409,7 @@ extension DZLabel: UITextViewDelegate {
         if let ges = textView.gestureRecognizers {
             for recognizer in ges {
                 if recognizer is UILongPressGestureRecognizer {
-                    if recognizer.state == UIGestureRecognizerState.began {
+                    if recognizer.state == UIGestureRecognizer.State.began {
                         isLongPress = true
                         longpressGesture = recognizer as? UILongPressGestureRecognizer
                         
@@ -455,7 +455,7 @@ extension DZLabel: UITextViewDelegate {
             let endOffset = offset(from: beginningOfDocument, to: end)
             let nsrange = NSMakeRange(startOffset, endOffset - startOffset)
             attributedText.enumerateAttributes(in: nsrange, options: [], using: { (attris, range, stop) in
-                if attris[NSAttributedStringKey.link] != nil {
+                if attris[NSAttributedString.Key.link] != nil {
                     results += [true]
                 }
             })

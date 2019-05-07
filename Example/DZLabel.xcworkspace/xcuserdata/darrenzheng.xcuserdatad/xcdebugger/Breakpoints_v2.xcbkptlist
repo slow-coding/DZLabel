@@ -2,4 +2,54 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../DZLabel/Classes/DZKeywordTypes.swift"
+            timestampString = "578900399.535154"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "hash(into:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DZLabel.DZKeywordType.hash(into: inout Swift.Hasher) -&gt; ()"
+                  moduleName = "DZLabel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/darrenzheng/Documents/GitHub/DZLabel/DZLabel/Classes/DZKeywordTypes.swift"
+                  timestampString = "578900399.7492681"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "95">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DZLabel.DZKeywordType.hash(into: inout Swift.Hasher) -&gt; ()"
+                  moduleName = "DZLabel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/darrenzheng/Documents/GitHub/DZLabel/DZLabel/Classes/DZKeywordTypes.swift"
+                  timestampString = "578900399.752234"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "416">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

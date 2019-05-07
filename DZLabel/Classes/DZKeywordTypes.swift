@@ -19,17 +19,25 @@ public enum DZKeywordType {
 }
 
 extension DZKeywordType: Hashable, Equatable {
-    public var hashValue: Int {
+//    public var hashValue: Int {
+//        switch self {
+//        case .mention: return -1
+//        case .url: return -2
+//        case .phone: return -3
+//        case .address: return -4
+//        case .emoticon(let tuple): return tuple.pattern.hashValue
+//        case .regex(let pattern): return pattern.hashValue
+////        case .manual(let range): return range.hashValue
+//        }
+//    }
+    public func hash(into hasher: inout Hasher) {
         switch self {
-        case .mention: return -1
-        case .url: return -2
-        case .phone: return -3
-        case .address: return -4
-        case .emoticon(let tuple): return tuple.pattern.hashValue
-        case .regex(let pattern): return pattern.hashValue
-//        case .manual(let range): return range.hashValue
+        case .mention, .url, .phone, .address: hasher.combine(self)
+        case .emoticon(let tuple): hasher.combine(tuple.pattern)
+        case .regex(let pattern): hasher.combine(pattern)
         }
     }
+
 }
 
 public func == (lhs: DZKeywordType, rhs: DZKeywordType) -> Bool {

@@ -263,11 +263,15 @@ import UIKit
             return
         }
         if url.absoluteString.hasPrefix(_filePrefix + DZRegex.URLPrefix) {
-            _URLTapHandler?((url.absoluteString as NSString).substring(from: (_filePrefix + DZRegex.URLPrefix).count))
+            if let str = (url.absoluteString as NSString).substring(from: (_filePrefix + DZRegex.URLPrefix).count).removingPercentEncoding {
+                _URLTapHandler?(str)
+            }
             return
         }
         if url.absoluteString.hasPrefix(_filePrefix + DZRegex.PhonePrefix) {
-            _phoneTapHandler?((url.absoluteString as NSString).substring(from: (_filePrefix + DZRegex.PhonePrefix).count))
+            if let str = (url.absoluteString as NSString).substring(from: (_filePrefix + DZRegex.PhonePrefix).count).removingPercentEncoding {
+                _phoneTapHandler?(str)
+            }
             return
         }
         if url.absoluteString.hasPrefix(_filePrefix + DZRegex.MapPrefix) {

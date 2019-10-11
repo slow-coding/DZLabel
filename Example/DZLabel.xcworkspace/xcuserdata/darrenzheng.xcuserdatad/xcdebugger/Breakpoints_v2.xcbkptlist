@@ -1,55 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
+   uuid = "93E33978-5D51-4A74-8F35-DB8E425051E5"
    type = "0"
    version = "2.0">
-   <Breakpoints>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../DZLabel/Classes/DZKeywordTypes.swift"
-            timestampString = "578901056.778212"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "hash(into:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DZLabel.DZKeywordType.hash(into: inout Swift.Hasher) -&gt; ()"
-                  moduleName = "DZLabel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/darrenzheng/Documents/GitHub/DZLabel/DZLabel/Classes/DZKeywordTypes.swift"
-                  timestampString = "578901057.05313"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "95">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DZLabel.DZKeywordType.hash(into: inout Swift.Hasher) -&gt; ()"
-                  moduleName = "DZLabel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/darrenzheng/Documents/GitHub/DZLabel/DZLabel/Classes/DZKeywordTypes.swift"
-                  timestampString = "578901057.054983"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "416">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-   </Breakpoints>
 </Bucket>

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DZLabel'
-  s.version          = '1.3.3'
+  s.version          = '1.3.4'
   s.summary          = 'iOS rich text clickable link label'
 
 # This description is used to generate tags and improve search results.
@@ -31,7 +31,7 @@ iOS rich text clickable link label, an replacement of UILabel
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'DZLabel/Classes/**/*'
-  s.swift_version = '4'
+  s.swift_version = '5'
   # s.resource_bundles = {
   #   'DZLabel' => ['DZLabel/Assets/*.png']
   # }

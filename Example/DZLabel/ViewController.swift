@@ -11,6 +11,8 @@ import DZLabel
 import SnapKit
 class ViewController: UIViewController {
 let tableView = UITableView()
+    
+    var count = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,10 +60,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 //        cell.label.attributedText = attri.generateAttributedString
  
         cell.label.dzHandlePreRenderTap { aaa in
-            print(aaa)
+           
         }
-        cell.label.dzHandleURLTap { url in
-            print(url)
+        cell.label.dzHandleURLTap { [weak self] url in
+            guard let `self` = self else { return }
+            print(self.count, url)
+            self.count += 1
         }
         return cell
     }

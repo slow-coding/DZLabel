@@ -406,30 +406,38 @@ extension DZLabel: UITextViewDelegate {
     
     public func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
         
-        // ios 8+
-        // check for long press event
-        var isLongPress = false
-        var longpressGesture: UILongPressGestureRecognizer?
-        if let ges = textView.gestureRecognizers {
-            for recognizer in ges {
-                if recognizer is UILongPressGestureRecognizer {
-                    if recognizer.state == UIGestureRecognizer.State.began {
-                        isLongPress = true
-                        longpressGesture = recognizer as? UILongPressGestureRecognizer
-                        
+        
+        if #available(iOS 13.0, *) {
+            
+        }
+        else {
+            // ios 8+
+            // check for long press event
+            var isLongPress = false
+            var longpressGesture: UILongPressGestureRecognizer?
+            if let ges = textView.gestureRecognizers {
+                for recognizer in ges {
+                    if recognizer is UILongPressGestureRecognizer {
+                        if recognizer.state == UIGestureRecognizer.State.began {
+                            isLongPress = true
+                            longpressGesture = recognizer as? UILongPressGestureRecognizer
+                            
+                        }
                     }
                 }
             }
-        }
-        if isLongPress {
-            if let _ = longpressGesture {
-                _keywordLongPressHandler?()
+            if isLongPress {
+                if let _ = longpressGesture {
+                    _keywordLongPressHandler?()
+                } else {
+                    _handleTapURL(URL)
+                }
             } else {
                 _handleTapURL(URL)
             }
-        } else {
-            _handleTapURL(URL)
         }
+        
+        
         
         return false
     }

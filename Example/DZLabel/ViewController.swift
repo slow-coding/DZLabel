@@ -17,7 +17,8 @@ let tableView = UITableView()
         super.viewDidLoad()
         
         
-        
+        view.backgroundColor = UIColor.white
+        tableView.backgroundColor = UIColor.white
         tableView.register(MyCell.self, forCellReuseIdentifier: "Cell")
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44
@@ -53,6 +54,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for:indexPath) as! MyCell
+        cell.contentView.backgroundColor = .white
         cell.label.dzText = "范把范把范把范把 http://www.baidu.com 范把范把范把范 http://www.google.com 范把范把范把范把范把范把范把[test]范把范把范把范把范把范把范把范把范把范把范把范把"
 //        let attri = DZAttributedStringGenerator(text: "123[test]")
         
@@ -100,8 +102,17 @@ class MyCell: UITableViewCell {
         label.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+        
+              let  longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(onLongPress(gestureRecognizer:)))
+        addGestureRecognizer(longPressRecognizer)
+
     }
     
+        @objc fileprivate func onLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
+            if gestureRecognizer.state == .began {
+                print("hi")
+            }
+        }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

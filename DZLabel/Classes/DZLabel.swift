@@ -253,8 +253,7 @@ import UIKit
 //        }
     
     }
-    
-    
+
     private func _handleTapURL(_ url: URL) {
         if url.absoluteString.hasPrefix(_filePrefix + DZRegex.MentionPrefix) {
             if let str = (url.absoluteString as NSString).substring(from: (_filePrefix + DZRegex.MentionPrefix).count).removingPercentEncoding {
@@ -310,7 +309,6 @@ import UIKit
     fileprivate var onKeywordTap: ((_ linkPrefix: String, _ keyword: String) -> Void)?
     fileprivate var tapRecognizer: UITapGestureRecognizer?
     
-    
     override init(frame: CGRect, textContainer: NSTextContainer?) { super.init(frame: frame, textContainer: textContainer) }
     required public init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
     
@@ -334,21 +332,31 @@ import UIKit
         }
         tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(DZLabel.tappedTextView))
         addGestureRecognizer(tapRecognizer!)
-        
         setContentCompressionResistancePriority(.required, for: .horizontal)
         setContentCompressionResistancePriority(.required, for: .vertical)
-
+        //
+        if #available(iOS 13.0, *) {
+            if let gestureRecognizers = gestureRecognizers {
+                for recognizer in gestureRecognizers {
+                    if recognizer is UILongPressGestureRecognizer {
+                        recognizer.isEnabled = false
+                    }
+                }
+            }
+        }
+        
     }
-    
-    
-    
+//    @available(iOS 13.0, *)
+    public func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        return false
+    }
     
 }
 
 
 // MARK: Misc
 extension DZLabel {
-    
+
     @objc fileprivate func tappedTextView() {
         var urlTapped = false
         if let tapLocation = tapRecognizer?.location(in: self) {
@@ -408,20 +416,17 @@ extension DZLabel: UITextViewDelegate {
         
         
         if #available(iOS 13.0, *) {
-            
         }
         else {
-            // ios 8+
-            // check for long press event
             var isLongPress = false
             var longpressGesture: UILongPressGestureRecognizer?
             if let ges = textView.gestureRecognizers {
                 for recognizer in ges {
                     if recognizer is UILongPressGestureRecognizer {
-                        if recognizer.state == UIGestureRecognizer.State.began {
+                        if recognizer.state == UIGestureRecognizer.State.possible {
                             isLongPress = true
                             longpressGesture = recognizer as? UILongPressGestureRecognizer
-                            
+
                         }
                     }
                 }
@@ -429,14 +434,15 @@ extension DZLabel: UITextViewDelegate {
             if isLongPress {
                 if let _ = longpressGesture {
                     _keywordLongPressHandler?()
-                } else {
+                }
+                else {
                     _handleTapURL(URL)
                 }
-            } else {
+            }
+            else {
                 _handleTapURL(URL)
             }
         }
-        
         
         
         return false
@@ -452,8 +458,21 @@ extension DZLabel: UITextViewDelegate {
     }
     
     public func textViewDidChangeSelection(_ textView: UITextView) {
-        if NSEqualRanges(textView.selectedRange, NSMakeRange(0, 0)) == false {
-            textView.selectedRange = NSMakeRange(0, 0);
+        if #available(iOS 13.0, *) {
+//            if let gestureRecognizers = textView.gestureRecognizers {
+//                for recognizer in gestureRecognizers {
+//                    if recognizer is UILongPressGestureRecognizer {
+//                        if let index = textView.gestureRecognizers?.firstIndex(of: recognizer) {
+//                            textView.gestureRecognizers?.remove(at: index)
+//                        }
+//                    }
+//                }
+//            }
+        }
+        else {
+            if NSEqualRanges(textView.selectedRange, NSMakeRange(0, 0)) == false {
+                textView.selectedRange = NSMakeRange(0, 0);
+            }
         }
     }
     
@@ -474,6 +493,8 @@ extension DZLabel: UITextViewDelegate {
         }
         return results.count > 0
     }
+    
+
 }
 
 /// Disable Drag & Drop

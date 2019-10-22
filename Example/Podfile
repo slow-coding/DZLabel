@@ -3,9 +3,5 @@ use_frameworks!
 target 'DZLabel_Example' do
   pod 'DZLabel', :path => '../'
   pod 'SnapKit'
-  target 'DZLabel_Tests' do
-    inherit! :search_paths
 
-    
-  end
 end

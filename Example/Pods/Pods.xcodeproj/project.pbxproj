@@ -37,6 +37,7 @@
 		9880DA70F70C701C16733955720DF14C /* ConstraintConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53136A44C3AF8EA930C8F0C67B926F0 /* ConstraintConfig.swift */; };
 		9DEC55D3DA718531734F2C14D5E40712 /* Pods-DZLabel_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 895B91E4FD7FD40AE05D85C7FC559FDA /* Pods-DZLabel_Example-dummy.m */; };
 		A80E669FCC46875D3F9A99E4A5B22B5A /* SnapKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D310AAB8E50557845B5D7CF84C02F45 /* SnapKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A959499B235F4BA1009E425A /* String+DZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = A959499A235F4BA1009E425A /* String+DZ.swift */; };
 		AD033E7789604955F50E0DA5AA0C5BB4 /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F94C7C263067A0535BA4C068F5BA96 /* Debugging.swift */; };
 		B4908EB8A4C6E25418CD696091027BBC /* DZLabel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 67461AB427B7FEB72132519C1E9FFA1F /* DZLabel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BB9B6B1709E3421693E11D364B3587A8 /* ConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A7AEA6044B2018807C2D766ED9025D /* ConstraintItem.swift */; };
@@ -141,6 +142,7 @@
 		A66AA66BCD7583FB9A6324FB89D6C530 /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupportDSL.swift; path = Source/ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
 		A671A026067AF279C0A07DAC5E3D5F56 /* ConstraintDescription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDescription.swift; path = Source/ConstraintDescription.swift; sourceTree = "<group>"; };
 		A67B40D016A70B65D2966CC518723B81 /* Pods-DZLabel_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DZLabel_Example.release.xcconfig"; sourceTree = "<group>"; };
+		A959499A235F4BA1009E425A /* String+DZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DZ.swift"; sourceTree = "<group>"; };
 		AB94EABAA895C439B9F92261F7E8D9A7 /* Pods-DZLabel_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DZLabel_Tests-Info.plist"; sourceTree = "<group>"; };
 		AE5346368BC99A5B79466E27BB09C8F0 /* DZRegex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DZRegex.swift; path = DZLabel/Classes/DZRegex.swift; sourceTree = "<group>"; };
 		B4A4F8A212A742668F36D58DA64B1850 /* Pods-DZLabel_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DZLabel_Tests.modulemap"; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				465B434E4B587065365015A29FDDC899 /* DZKeywordTypes.swift */,
 				8CEB9F9DBCE691E083675A9689615B91 /* DZLabel.swift */,
 				AE5346368BC99A5B79466E27BB09C8F0 /* DZRegex.swift */,
+				A959499A235F4BA1009E425A /* String+DZ.swift */,
 				5C16490749FBF8972B06BE58155D13D0 /* Pod */,
 				257CC4CB15D8C7AC3DA7251F4B744946 /* Support Files */,
 			);
@@ -568,6 +571,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A959499B235F4BA1009E425A /* String+DZ.swift in Sources */,
 				13204C29B5E2CF0F4EB3545E2BB6ECCA /* DZAttributedStringGenerator.swift in Sources */,
 				94A945D0A92A8FCB3FA648E9F0F1E96E /* DZKeywordTypes.swift in Sources */,
 				112D40195202B6D07ED4E6548B3FA405 /* DZLabel-dummy.m in Sources */,

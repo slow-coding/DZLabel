@@ -55,14 +55,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for:indexPath) as! MyCell
         cell.contentView.backgroundColor = .white
-        cell.label.dzText = "范把范把范把范把 http://www.baidu.com 范把范把范把范 http://www.google.com 范把范把范把范把范把范把范把[test]范把范把范把范把范把范把范把范把范把范把范把范把"
+        cell.label.dzText = "范把范把范把范把 http://www.baidu.com哈哈 范把范把范把范 http://www.google.com 范把范把范把范把范把范把范把[test]范把范把范把范把范把范把范把范把范把范把范把范把"
 //        let attri = DZAttributedStringGenerator(text: "123[test]")
         
         
 //        cell.label.attributedText = attri.generateAttributedString
  
-        cell.label.dzHandlePreRenderTap { aaa in
-           
+        cell.label.dzHandleRegexKeywordTap { aaa in
+           print(aaa)
         }
         cell.label.dzHandleURLTap { [weak self] url in
             guard let `self` = self else { return }
@@ -86,15 +86,15 @@ class MyCell: UITableViewCell {
             .address,
             .phone,
             .mention,
-            .url,
-            .emoticon(pattern: nil, // By default: "[EmoticonName]"
-                bounds: nil, // Position and Size
-                imageNameBlock: ({ name in // Text -> Local Image Name
-                    var imageName = name
-                    if imageName.hasPrefix("[") { imageName.removeFirst() }
-                    if imageName.hasSuffix("]") { imageName.removeLast() }
-                    return imageName})),
-            .regex(pattern: "AM|PM"),
+//            .url,
+//            .emoticon(pattern: nil, // By default: "[EmoticonName]"
+//                bounds: nil, // Position and Size
+//                imageNameBlock: ({ name in // Text -> Local Image Name
+//                    var imageName = name
+//                    if imageName.hasPrefix("[") { imageName.removeFirst() }
+//                    if imageName.hasSuffix("]") { imageName.removeLast() }
+//                    return imageName})),
+            .regex(pattern: "((?:http|https)://)?(?:www\\.)?[\\w\\d\\-_]+\\.\\w{2,3}(\\.\\w{2})?(/(?<=/)(?:[\\w\\d\\-./_]+)?)?"),
         ]
 //        label.frame = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height)
         contentView.addSubview(label)

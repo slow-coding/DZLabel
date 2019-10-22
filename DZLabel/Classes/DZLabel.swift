@@ -219,8 +219,10 @@ import UIKit
                     if case .regex(let pattern) = type {
                         for result in DZRegex.resultsInText(dzText, pattern: pattern) {
                             if let keyword = self._substringWithNSRange(result.range, text: dzText) {
-                                let url = URL(fileURLWithPath: "\(DZRegex.CustomPrefix)\(keyword)")
-                                attributedStringGenerator.link(url: url, range: result.range)
+                                if let hosteEncodeKeyword = (keyword as String).hostEncodeUrl() {
+                                    let url = URL(fileURLWithPath: "\(DZRegex.CustomPrefix)\(hosteEncodeKeyword)")
+                                    attributedStringGenerator.link(url: url, range: result.range)
+                                }
                             }
                         }
                     }
@@ -234,6 +236,7 @@ import UIKit
                     //            }
                     
                 }
+                    
 //            }
 //            DispatchQueue.main.async {
 //                if self.dzText == textCopy {
@@ -254,39 +257,43 @@ import UIKit
     
     }
 
-    private func _handleTapURL(_ url: URL) {
-        if url.absoluteString.hasPrefix(_filePrefix + DZRegex.MentionPrefix) {
-            if let str = (url.absoluteString as NSString).substring(from: (_filePrefix + DZRegex.MentionPrefix).count).removingPercentEncoding {
+    private func _handleTapURL(_ rawUrl: URL) {
+        let rawUrlString = (rawUrl.absoluteString as NSString).substring(from: (_filePrefix).count)
+  
+        
+        if rawUrlString.hasPrefix(DZRegex.MentionPrefix) {
+            if let str = (rawUrlString as NSString).substring(from: (DZRegex.MentionPrefix).count).removingPercentEncoding {
                 _mentionTapHandler?(str)
             }
             return
         }
-        if url.absoluteString.hasPrefix(_filePrefix + DZRegex.URLPrefix) {
-            if let str = (url.absoluteString as NSString).substring(from: (_filePrefix + DZRegex.URLPrefix).count).removingPercentEncoding {
+        if rawUrlString.hasPrefix(DZRegex.URLPrefix) {
+            if let str = (rawUrlString as NSString).substring(from: (DZRegex.URLPrefix).count).removingPercentEncoding {
                 _URLTapHandler?(str)
             }
             return
         }
-        if url.absoluteString.hasPrefix(_filePrefix + DZRegex.PhonePrefix) {
-            if let str = (url.absoluteString as NSString).substring(from: (_filePrefix + DZRegex.PhonePrefix).count).removingPercentEncoding {
+        if rawUrlString.hasPrefix(DZRegex.PhonePrefix) {
+            if let str = (rawUrlString as NSString).substring(from: (DZRegex.PhonePrefix).count).removingPercentEncoding {
                 _phoneTapHandler?(str)
             }
             return
         }
-        if url.absoluteString.hasPrefix(_filePrefix + DZRegex.MapPrefix) {
-            if let str = (url.absoluteString as NSString).substring(from: (_filePrefix + DZRegex.MapPrefix).count).removingPercentEncoding {
+        if rawUrlString.hasPrefix(DZRegex.MapPrefix) {
+            if let str = (rawUrlString as NSString).substring(from: (DZRegex.MapPrefix).count).removingPercentEncoding {
                 _addressTapHandler?(str)
             }
             return
         }
-        if url.absoluteString.hasPrefix(_filePrefix + DZRegex.CustomPrefix) {
-            if let str = (url.absoluteString as NSString).substring(from: (_filePrefix + DZRegex.CustomPrefix).count).removingPercentEncoding {
+        
+        if rawUrlString.hasPrefix(DZRegex.CustomPrefix) {
+            if let str = (rawUrlString as NSString).substring(from: (DZRegex.CustomPrefix).count).hostDecodeUrl()?.removingPercentEncoding {
                 _regexKeywordTapHandler?(str)
             }
             return
         }
         
-        if let str = (url.absoluteString as NSString).substring(from: (_filePrefix).count).removingPercentEncoding {
+        if let str = rawUrlString.removingPercentEncoding {
             _regexPreRenderTapHandler?(str)
         }
         //        if url.absoluteString.hasPrefix(_filePrefix + DZRegex.ManualPrefix) {

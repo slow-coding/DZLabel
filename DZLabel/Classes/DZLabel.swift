@@ -258,9 +258,20 @@ import UIKit
     }
 
     private func _handleTapURL(_ rawUrl: URL) {
-        let rawUrlString = (rawUrl.absoluteString as NSString).substring(from: (_filePrefix).count)
-  
+        var rawUrlString = (rawUrl.absoluteString as NSString).substring(from: (_filePrefix).count)
         
+        var filePath = FileManager.default.currentDirectoryPath
+        if (filePath.hasPrefix("/")) {
+            filePath = (filePath as NSString).substring(from: "/".count)
+        }
+        if (!filePath.hasSuffix("/")) {
+            filePath = filePath + "/"
+        }
+        
+        if rawUrlString.hasPrefix(filePath) {
+            rawUrlString = (rawUrlString as NSString).substring(from: filePath.count)
+        }
+  
         if rawUrlString.hasPrefix(DZRegex.MentionPrefix) {
             if let str = (rawUrlString as NSString).substring(from: (DZRegex.MentionPrefix).count).removingPercentEncoding {
                 _mentionTapHandler?(str)

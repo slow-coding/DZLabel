@@ -433,9 +433,9 @@ extension DZLabel: UITextViewDelegate {
     public func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
         
         
-        if #available(iOS 13.0, *) {
-        }
-        else {
+//        if #available(iOS 13.0, *) {
+//        }
+//        else {
             var isLongPress = false
             var longpressGesture: UILongPressGestureRecognizer?
             if let ges = textView.gestureRecognizers {
@@ -460,7 +460,7 @@ extension DZLabel: UITextViewDelegate {
             else {
                 _handleTapURL(URL)
             }
-        }
+//        }
         
         
         return false

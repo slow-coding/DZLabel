@@ -102,17 +102,20 @@ class MyCell: UITableViewCell {
         label.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+        label.dzHandleKeywordLongPress {
+            print("longpress")
+        }
         
-              let  longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(onLongPress(gestureRecognizer:)))
-        addGestureRecognizer(longPressRecognizer)
+//              let  longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(onLongPress(gestureRecognizer:)))
+//        addGestureRecognizer(longPressRecognizer)
 
     }
     
-        @objc fileprivate func onLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
-            if gestureRecognizer.state == .began {
-                print("hi")
-            }
-        }
+//        @objc fileprivate func onLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
+//            if gestureRecognizer.state == .began {
+//                print("hi")
+//            }
+//        }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

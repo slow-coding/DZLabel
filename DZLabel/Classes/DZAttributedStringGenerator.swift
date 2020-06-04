@@ -156,7 +156,15 @@ public extension DZAttributedStringGenerator {
 public extension DZAttributedStringGenerator {
     
     fileprivate func fullRange(_ string: String) -> NSRange {
-        return NSRange(location: 0, length: string.count)
+        /*
+         https://developer.apple.com/documentation/foundation/nsstring?language=objc
+         https://developer.apple.com/documentation/swift/string
+         在含有emoji时关于字符串长度NSString和String是不一样的；
+         NSString的length是采用UTF-16来计算的；
+         String的count是采用(Unicode)来计算characters个数的;(可以使用string.utf16.count等同于length, 也可以(string as! NSString).length)
+         而富文本addAttributes(_ attrs: , range: )使用的range是应该是使用UTF-16的长度
+         */
+        return NSRange(location: 0, length: (string as! NSString).length)
     }
     
     @discardableResult

@@ -74,6 +74,13 @@ import UIKit
         }
     }
     
+    @IBInspectable open var dzLineSpacing: CGFloat = 0 {
+         didSet {
+             guard dzLineSpacing != oldValue else { return }
+             _update()
+         }
+     }
+    
     private var _mentionTapHandler: ((String) -> Void)?
     open func dzHandleMentionTap(_ handler: @escaping (String) -> Void) {
         _mentionTapHandler = handler
@@ -243,6 +250,7 @@ import UIKit
                     attributedStringGenerator.textColor(self.dzTextColor)
                     attributedStringGenerator.font(self.dzFont)
                     self.style.alignment = self.dzTextAlignment
+                self.style.lineSpacing = self.dzLineSpacing
                     attributedStringGenerator.paragraphStyle(self.style)
 //                    self.dzTableView?.beginUpdates()
                     self.attributedText = attributedStringGenerator.generateAttributedString
